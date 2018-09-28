@@ -18,6 +18,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 
 public class Weather {
 	private String name;
@@ -95,10 +96,16 @@ public class Weather {
 	//Create first JSONObject with all weather data 
 	public JsonObject createJSONObjectFromSMHIdata(String indata) {
 		//indata = getSMHIIndata();
+		JsonObject jsonTree = null;
 		JsonParser parser = new JsonParser();
-		JsonObject jsonTree = (JsonObject) parser.parse(indata);
-		// System.out.println("Got a jsonTree JsonObject");
-		System.out.println("Detta är ett jsonTree: " + jsonTree);
+		try {
+			jsonTree = (JsonObject) parser.parse(indata);
+			// System.out.println("Got a jsonTree JsonObject");
+			// System.out.println("Detta är ett jsonTree: " + jsonTree);
+		} catch (JsonSyntaxException e) {
+			System.out.println("Something wrong with the JSON - you've got a JsonSyntaxException");
+			System.out.println(e.toString());
+		}
 	return jsonTree;
 	}
 		
