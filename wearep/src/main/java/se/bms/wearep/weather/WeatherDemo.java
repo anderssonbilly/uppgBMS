@@ -24,7 +24,7 @@ public class WeatherDemo {
 		//weather.returnForecastStartTime(jsonTree);
 		//returnForecastApprovedTime(jsonTree);
 		//JsonArray timeSeries = createTimeSeriesJsonArrayFromJSonObject(jsonTree);
-	JsonArray weatherForecast = weather.createJSONArrayOfMeasurements(jsonTree);
+		JsonArray weatherForecast = weather.createJSONArrayOfMeasurements(jsonTree);
 		//JsonArray parameters = createParametersJsonArray(timeSeries);
 		//createResultsJsonArray(parameters);
 		//createJSONObject(indata);
