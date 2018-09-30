@@ -34,7 +34,18 @@ class WeatherTest {
 		assertTrue(jsonTree.isJsonObject());
 	}
 
-
+	// This test also needs to be green before any further tests are run as other tests depend on this one
+	@Test
+	final void testCreateJsonWeatherObject() { 
+		// Arrange
+		Weather weather = new Weather();
+		// Act
+		JsonObject jsonTree = weather.createJsonWeatherObject("2018-09-28T15:38:32Z", "temperature", "21.0", "Cel", "2018-09-28T17:40:32Z", "2018-09-28T15:38:32Z");
+		//Assert
+		assertTrue(jsonTree.isJsonObject());
+	}
+	
+	
 	@Test
 	final void testReturnForecastStartTime() { // TODO "real" mocking
 		// Arrange

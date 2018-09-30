@@ -51,6 +51,104 @@ public class Weather {
 	public Weather() {	
 	}
 	
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the value
+	 */
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * @param value the value to set
+	 */
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	/**
+	 * @return the unit
+	 */
+	public String getUnit() {
+		return unit;
+	}
+
+	/**
+	 * @param unit the unit to set
+	 */
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+
+	/**
+	 * @return the forecastStartTime
+	 */
+	public String getForecastStartTime() {
+		return forecastStartTime;
+	}
+
+	/**
+	 * @param forecastStartTime the forecastStartTime to set
+	 */
+	public void setForecastStartTime(String forecastStartTime) {
+		this.forecastStartTime = forecastStartTime;
+	}
+
+	/**
+	 * @return the approvedTime
+	 */
+	public String getApprovedTime() {
+		return approvedTime;
+	}
+
+	/**
+	 * @param approvedTime the approvedTime to set
+	 */
+	public void setApprovedTime(String approvedTime) {
+		this.approvedTime = approvedTime;
+	}
+
+	/**
+	 * @return the validTime
+	 */
+	public String getValidTime() {
+		return validTime;
+	}
+
+	/**
+	 * @param validTime the validTime to set
+	 */
+	public void setValidTime(String validTime) {
+		this.validTime = validTime;
+	}
+
+	/**
+	 * @return the weatherForecast
+	 */
+	public JsonArray getWeatherForecast() {
+		return weatherForecast;
+	}
+
+	/**
+	 * @param weatherForecast the weatherForecast to set
+	 */
+	public void setWeatherForecast(JsonArray weatherForecast) {
+		this.weatherForecast = weatherForecast;
+	}
+
 	//Get weather data
 	public String getSMHIIndata() {
 		String smhiIndata = ""; // store the JSON data streamed
@@ -130,6 +228,15 @@ public class Weather {
 		// System.out.println(timeSeries);
 	return timeSeries;
 	}
+	
+	// TODO check this - use to replace and make more general
+	// Create general JSonArray
+		public JsonArray createJsonArrayFromJSonObject(JsonObject jsonObject, String memberName) {	
+			JsonArray jsonArray= (JsonArray) jsonObject.get(memberName);
+			// System.out.println("Got a timeSeries JsonArray");
+			// System.out.println(timeSeries);
+		return jsonArray;
+		}
 		
 	/*	
 	// Create parameters JSonArray
@@ -199,7 +306,8 @@ public class Weather {
 					
 				//	System.out.println("Forecast for: " + validTime + ". Approved on " + approvedTime + " and valid from (forecast start) " + forecastStartTime + " " + name + ": " + value + " " + unit); //TODO
 					System.out.println(name + ": " + value + " " + unit );
-					String jsonWeather = createJsonWeatherObject(validTime, name, value, unit, approvedTime,forecastStartTime);
+					JsonObject jsonWeather = createJsonWeatherObject(validTime, name, value, unit, approvedTime,forecastStartTime);
+					//String jsonWeather = createJsonWeatherObject(validTime, name, value, unit, approvedTime,forecastStartTime);
 					//System.out.println("This is jsonWeather from big method: " + jsonWeather); // for reference only	
 					weatherForecast.add(jsonWeather);
 					
@@ -207,19 +315,38 @@ public class Weather {
 					
 			}
 		}
-		System.out.println("This is weatherForecast: " + weatherForecast); //for reference only
+		//System.out.println(validTime + " " + name + ": " + value + " " + unit + " " + approvedTime + " " + forecastStartTime);
+	//	System.out.println("This is weatherForecast: " + weatherForecast); //for reference only
 		return weatherForecast;
 		
 	}
 	
 
+	//Method to create JSON object not string
+		public JsonObject createJsonWeatherObject(String validTime, String name, String value, String unit, String approvedTime, String forecastStartTime) {
+			Weather weather = new Weather(name, value, unit, forecastStartTime, approvedTime, validTime);
+			Gson gson = new Gson();
+			String json = gson.toJson(weather);
+			System.out.println("This is json from weather object: " + json); //for reference only
+			JsonObject jsonObject = null;
+			JsonParser parser = new JsonParser();
+			try {
+				jsonObject = (JsonObject) parser.parse(json);
+				// System.out.println("Got a JsonObject");
+				// System.out.println("Detta är ett jsonObject: " + jsonObject);
+			} catch (JsonSyntaxException e) {
+				System.out.println("Something wrong with the JSON - you've got a JsonSyntaxException");
+				System.out.println(e.toString());
+			}
+			return jsonObject;
+		}
 	
-	//Method to create JSON object
-	private String createJsonWeatherObject(String validTime, String name, String value, String unit, String approvedTime, String forecastStartTime) {
+	//Method to create JSON object //TODO old, to be deleted
+	private String createJsonWeatherObject1(String validTime, String name, String value, String unit, String approvedTime, String forecastStartTime) {
 		Weather weather = new Weather(name, value, unit, forecastStartTime, approvedTime, validTime);
 		Gson gson = new Gson();
 		String json = gson.toJson(weather);
-		//System.out.println("This is json from weather object: " + json); //for reference only
+		System.out.println("This is json from weather object: " + json); //for reference only
 	return json;
 	}
 	
