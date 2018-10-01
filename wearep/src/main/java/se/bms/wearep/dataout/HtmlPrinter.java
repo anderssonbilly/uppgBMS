@@ -3,9 +3,10 @@ package se.bms.wearep.dataout;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import se.bms.wearep.weather.Weather;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import com.google.gson.JsonObject;
 
 public class HtmlPrinter {
 	
@@ -13,47 +14,33 @@ public class HtmlPrinter {
 		
 	}
 	
-	public void createMessage(JsonArray weatherForecast) {
-		System.out.println("Weather forcast is: " + weatherForecast);
-		for (int i=0; i<weatherForecast.size(); i++) {
-			Gson gson = new Gson();
-			String json = ""+ weatherForecast.get(i);
-			Weather weather = gson.fromJson(json, Weather.class);
-			
-			String name = weather.getName();
-			String forecastFor = weather.getValidTime();
-			String value = weather.getValue();
-			System.out.println("Name: " + name);
-			if(name.equals("Weather symbol"))  { 
-				System.out.println("Entering if!");
-				name = "Forecast";
-				String message = forecastFor + " " + name + ": " + value;
-				System.out.println(message); //for reference only
-				printToFile(message);
-			//	break;
-			}
-			if(name.equals("Air temperature"))  { 
-				System.out.println("Entering if!");
-				name = "Temperature";
-				String unit = " degrees " + weather.getUnit() + "cius";
-				String message = forecastFor + " " + name + ": " + value + unit;
-				System.out.println(message); //for reference only
-				printToFile(message);
-			//	break;
-			}
-			else System.out.println(name +" No html created");
-		}
-		//return message;
-	
-	}
-	
-
+	//create message to send
+		public String createMessage(JsonObject selectedWeatherObject) {
 		
+			String validTime = selectedWeatherObject.get("validTime").getAsString();
+			String temperature = selectedWeatherObject.get("temperature").getAsString();
+			String forecast = selectedWeatherObject.get("forecast").getAsString();
+			
+			String message = "Forecast for "+ validTime + ": " + forecast + ". Temperature " + temperature + " degrees Celsius.";
+			
+			return message;
+		}
+
+
 	// Method to write to file
 	public void printToFile(String message) {
 		FileOutputStream weatherOutfile = null;
 		try {
+			//TODO change to appropriate path
 			weatherOutfile = new FileOutputStream("C:/Users/gospe/Documents/Ska_till_NAS/Systemintegratör/Datakommunikation_och_nätverk/weatherOutfile.html", true);
+			
+			//TODO need to update path
+			/*
+			Path currentRelativePath = Paths.get("");
+			String s = currentRelativePath.toAbsolutePath().toString();
+			System.out.println(s);
+			weatherOutfile = new FileOutputStream(s, true);
+		*/
 			
 			weatherOutfile.write(message.getBytes());
 			
@@ -67,6 +54,4 @@ public class HtmlPrinter {
 
 }
 
-		
-	
 
