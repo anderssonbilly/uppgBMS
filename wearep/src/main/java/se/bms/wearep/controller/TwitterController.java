@@ -31,6 +31,7 @@ public class TwitterController extends AnchorPane {
 	@FXML
 	public void enterPin(ActionEvent event) {
 		String pin = ((TextField) ((Node)event.getSource()).getParent().getScene().lookup("#pin")).getText();
+		System.out.println("Pin: " + pin);
 		authenticate(pin);
 		// authenticate with the pin
 	}
