@@ -27,6 +27,10 @@ public class Weather {
 	private String forecastStartTime;
 	private String approvedTime;
 	private String validTime;
+	private String temperature; //new
+	private String forecast; //new 
+	
+	
 	
 	private JsonArray weatherForecast = new JsonArray();
 			
@@ -46,6 +50,24 @@ public class Weather {
 		this.forecastStartTime = forecastStartTime;
 		this.approvedTime = approvedTime;
 		this.validTime = validTime;
+	}
+	
+	public Weather(String validTime, String forecast, String temperature) {
+		this.validTime = validTime;
+		this.forecast = forecast;
+		this.temperature = temperature;
+	}
+	
+	public Weather(String name, String value, String unit, String forecastStartTime, String approvedTime,
+			String validTime, String temperature, String forecast) {
+		this.name = name;
+		this.value = value;
+		this.unit = unit;
+		this.forecastStartTime = forecastStartTime;
+		this.approvedTime = approvedTime;
+		this.validTime = validTime;
+		this.temperature = temperature;
+		this.forecast = forecast;
 	}
 
 	public Weather() {	
@@ -340,13 +362,38 @@ public class Weather {
 			}
 			return jsonObject;
 		}
+		
+		//Method to create JSON string
+		public String createJsonStringFromWeather(Weather weather) {
+			Gson gson = new Gson();
+			String json = gson.toJson(weather);
+		//	System.out.println("This is json from weather object: " + json); //for reference only
+			return json;
+		}
+		
+		//Method to create JSON object from JSON string
+		public JsonObject createJsonObjectFromJsonString(String json) {
+			JsonObject jsonObject = null;
+			JsonParser parser = new JsonParser();
+			try {
+				jsonObject = (JsonObject) parser.parse(json);
+				// System.out.println("Got a JsonObject");
+				// System.out.println("Detta är ett jsonObject: " + jsonObject);
+			} catch (JsonSyntaxException e) {
+				System.out.println("Something wrong with the JSON - you've got a JsonSyntaxException");
+				System.out.println(e.toString());
+			}
+			return jsonObject;
+		}
+			
+	
 	
 	//Method to create JSON object //TODO old, to be deleted
 	private String createJsonWeatherObject1(String validTime, String name, String value, String unit, String approvedTime, String forecastStartTime) {
 		Weather weather = new Weather(name, value, unit, forecastStartTime, approvedTime, validTime);
 		Gson gson = new Gson();
 		String json = gson.toJson(weather);
-		System.out.println("This is json from weather object: " + json); //for reference only
+		//System.out.println("This is json from weather object: " + json); //for reference only
 	return json;
 	}
 	
