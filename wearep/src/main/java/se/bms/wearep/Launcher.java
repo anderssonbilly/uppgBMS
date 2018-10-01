@@ -1,8 +1,9 @@
 package se.bms.wearep;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Launcher extends Application
@@ -23,7 +24,9 @@ public class Launcher extends Application
 		stage.setTitle("Wearep");
 		stage.setResizable(false);
 		
-		Scene scene = new Scene(new Pane(),WIDTH,HEIGHT);
+		Parent fxml = FXMLLoader.load(getClass().getResource("view/container.fxml"));
+		
+		Scene scene = new Scene(fxml,WIDTH,HEIGHT);
 		stage.setScene(scene);
 		
 		stage.show();
