@@ -27,8 +27,8 @@ public class Weather {
 	private String forecastStartTime;
 	private String approvedTime;
 	private String validTime;
-	private String temperature; //new
-	private String forecast; //new 
+	private String temperature;
+	private String forecast;
 	
 	
 	
@@ -54,8 +54,8 @@ public class Weather {
 	
 	public Weather(String validTime, String forecast, String temperature) {
 		this.validTime = validTime;
-		this.forecast = forecast;
-		this.temperature = temperature;
+		this.setForecast(forecast);
+		this.setTemperature(temperature);
 	}
 	
 	public Weather(String name, String value, String unit, String forecastStartTime, String approvedTime,
@@ -66,8 +66,8 @@ public class Weather {
 		this.forecastStartTime = forecastStartTime;
 		this.approvedTime = approvedTime;
 		this.validTime = validTime;
-		this.temperature = temperature;
-		this.forecast = forecast;
+		this.setTemperature(temperature);
+		this.setForecast(forecast);
 	}
 
 	public Weather() {	
@@ -300,6 +300,9 @@ public class Weather {
 			JsonArray parameters = (JsonArray) parametersObject.get("parameters");
 			JsonElement validTimeElement = parametersObject.get("validTime");
 			String validTime = validTimeElement.getAsString();
+			String[] s = validTime.split("T");
+			validTime = s[0] + " " + s[1].substring(0,s[1].length()-4);
+			//System.out.println(validTime);
 			System.out.println("\nForecast for " + validTime);
 			// System.out.println("Got a parameters JsonArray"); // for reference only
 		//	System.out.println("Parameters JSON-array: " + parameters); for reference only
@@ -552,6 +555,34 @@ public class Weather {
 			return value = "0";
 		}
 		return value;
+	}
+
+	/**
+	 * @return the temperature
+	 */
+	public String getTemperature() {
+		return temperature;
+	}
+
+	/**
+	 * @param temperature the temperature to set
+	 */
+	public void setTemperature(String temperature) {
+		this.temperature = temperature;
+	}
+
+	/**
+	 * @return the forecast
+	 */
+	public String getForecast() {
+		return forecast;
+	}
+
+	/**
+	 * @param forecast the forecast to set
+	 */
+	public void setForecast(String forecast) {
+		this.forecast = forecast;
 	}
 		
 }
