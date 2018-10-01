@@ -288,21 +288,29 @@ public class Weather {
 	}
 	*/
 	
+	//Format date string
+	public String formatStringDate(String dateString) {
+		String[] s0 = dateString.split("T");
+		dateString = s0[0] + " " + s0[1].substring(0,s0[1].length()-4);
+		return dateString;
+	}
+		
 	// Create JSonArray with weather data JSONObjects for each measurement		
 	public JsonArray createJSONArrayOfMeasurements(JsonObject jsonTree) {
 		JsonElement forecastStartTimeElement = returnForecastStartTime(jsonTree);
 		String forecastStartTime = forecastStartTimeElement.getAsString();
+		forecastStartTime = formatStringDate(forecastStartTime);
 		JsonElement approvedTimeElement = returnForecastApprovedTime(jsonTree);
 		String approvedTime = approvedTimeElement.getAsString();
+		approvedTime = formatStringDate(approvedTime);
+		//System.out.println(validTime);
 		JsonArray timeSeries = createTimeSeriesJsonArrayFromJSonObject(jsonTree);
 		for(int i=0;i<timeSeries.size();i++) {
 			JsonObject parametersObject = (JsonObject)timeSeries.get(i);
 			JsonArray parameters = (JsonArray) parametersObject.get("parameters");
 			JsonElement validTimeElement = parametersObject.get("validTime");
 			String validTime = validTimeElement.getAsString();
-			String[] s = validTime.split("T");
-			validTime = s[0] + " " + s[1].substring(0,s[1].length()-4);
-			//System.out.println(validTime);
+			validTime = formatStringDate(validTime);
 			System.out.println("\nForecast for " + validTime);
 			// System.out.println("Got a parameters JsonArray"); // for reference only
 		//	System.out.println("Parameters JSON-array: " + parameters); for reference only
