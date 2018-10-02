@@ -25,9 +25,17 @@ public class WeatherDemo {
 		JsonObject jsonObjectTemp = weatherSelector.createTempObject(weatherForecast);
 		JsonObject jsonObjectForecast = weatherSelector.createForecastObject(weatherForecast);
 		JsonObject selectedWeatherObject = weatherSelector.createSelectedWeatherObject(jsonObjectTemp, jsonObjectForecast);
+		//TODO HtmlPrinter printer = new HtmlPrinter();
+		//TODO String message = printer.createMessage(selectedWeatherObject);
+		//TODO printer.printToFile(message);
+		
+		// alternative way with more general method to create message
 		HtmlPrinter printer = new HtmlPrinter();
-		String message = printer.createMessage(selectedWeatherObject);
+		String[] variables = {"validTime", "forecast","temperature"};
+		String messageTemplate = "Forecast for v0: v1. Temperature v2 degrees Celsius.";
+		String message = printer.createMessageGeneral(selectedWeatherObject, variables, messageTemplate);
 		printer.printToFile(message);
+		//testing until here
 	
 	//	String defaultUrl = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/x/lat/y/data.json";
 	//	Double [] coord = new Double[] {0.0, 0.0};

@@ -52,6 +52,19 @@ public class HtmlPrinter {
 	
 	}
 
+	//General method to create message
+	// messageTemplate should be formatted like "text" + v0 + "text" + v2 + v1 + "text"
+	public String createMessageGeneral(JsonObject jsonobject, String[] variables, String messageTemplate) {
+		String message = messageTemplate;
+		for (int i=0; i< variables.length; i++) {
+			String variableName = variables[i];
+			variableName = jsonobject.get(variableName).getAsString();
+			message = message.replace(("v"+i), variableName);
+		}
+			
+		return message;
+	}
+	
 }
 
 
