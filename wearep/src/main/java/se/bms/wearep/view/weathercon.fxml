@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.bms.wearep.controller.WeatherController">
+   <children>
+      <Button layoutX="51.0" layoutY="49.0" mnemonicParsing="false" onAction="#tweetWeather" style="-fx-background-radius: 50;" text="Tweet Current Weather Status">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Button>
+      <Label id="status" alignment="CENTER" layoutX="300.0" layoutY="14.0" prefWidth="200.0" textAlignment="CENTER" />
+   </children>
+</Pane>

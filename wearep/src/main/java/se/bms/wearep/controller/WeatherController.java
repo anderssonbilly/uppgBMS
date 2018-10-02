@@ -7,8 +7,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 public class WeatherController {
 
@@ -16,13 +19,23 @@ public class WeatherController {
 	protected Pane weather;
 	
 	@FXML
+	protected TextField city;
+	
+	@FXML
 	public void getWeather(ActionEvent event) throws IOException {
-		String city = ((TextField) ((Node)event.getSource()).getParent().getScene().lookup("#city")).getText();
-		System.out.println("City: " + city);
-		getWeatherData(getCoords(city));
+		System.out.println("City: " + city.getText());
+		getWeatherData(getCoords(city.getText()));
 		// when data is saved to disk
 		// show data in html file in the webview
 		changeToBrowser("http://www.smhi.se/");
+	}
+	
+	@FXML
+	public void tweetWeather(ActionEvent event) {
+		// tweet the current weather
+		System.out.println("Tweeting weather");
+		((Button)event.getSource()).disableProperty().set(true);
+		((Label)((Node)event.getSource()).getParent().getScene().lookup("#status")).setText("tweeting...");
 	}
 	
 	private Double[] getCoords(String city) {
@@ -45,6 +58,6 @@ public class WeatherController {
 		
 		WebViewController webView = loader.getController();
 		webView.changeWebpage(url); // should be the twitter login url
-//		webView.setControls(new FXMLLoader(getClass().getResource("../view/weathercon.fxml")));
+		webView.setControls(new FXMLLoader(getClass().getResource("../view/weathercon.fxml")));
 	}
 }
