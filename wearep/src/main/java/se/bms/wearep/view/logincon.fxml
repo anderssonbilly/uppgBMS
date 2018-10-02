@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.bms.wearep.controller.TwitterController">
+   <children>
+      <TextField id="pin" layoutX="14.0" layoutY="62.0" prefHeight="77.0" prefWidth="500.0" promptText="Enter pin...">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </TextField>
+      <Button layoutX="572.0" layoutY="49.0" mnemonicParsing="false" style="-fx-background-radius: 50;" text="Login" onAction="#enterPin">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
