@@ -5,25 +5,23 @@
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-	prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" tabMinHeight="50.0"
-	tabMinWidth="380.0" xmlns="http://javafx.com/javafx/8"
-	xmlns:fx="http://javafx.com/fxml/1">
+<TabPane id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" tabMinHeight="50.0" tabMinWidth="380.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 	<tabs>
 		<Tab text="Twitter">
 			<content>
-				<AnchorPane minHeight="0.0" minWidth="0.0"
-					prefHeight="180.0" prefWidth="200.0">
-					<fx:include source="twitter.fxml" />
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+   <children>
+   					<fx:include source="twitter.fxml" />
+   </children>
 				</AnchorPane>
 			</content>
 		</Tab>
 		<Tab text="Weather">
 			<content>
-				<AnchorPane minHeight="0.0" minWidth="0.0"
-					prefHeight="180.0" prefWidth="200.0">
-					<fx:include source="weather.fxml" />
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+   <children>
+   					<fx:include source="weather.fxml" />
+   </children>
 				</AnchorPane>
 			</content>
 		</Tab>
