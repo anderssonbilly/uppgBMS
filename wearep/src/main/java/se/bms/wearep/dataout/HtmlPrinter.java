@@ -6,12 +6,32 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 public class HtmlPrinter {
 	
 	public HtmlPrinter() {
 		
+	}
+	
+	public String createMessageFromJsonArray(JsonArray weatherForecast) {
+		JsonArray jsonArray = weatherForecast;
+		String validTime = "";
+		String message = "<h1>Forecast for Uddevalla</h1>";
+		printToFile(message);
+		for(int i=0;i<jsonArray.size();i++) {
+			JsonObject jsonObject = (JsonObject)jsonArray.get(i);
+			validTime = jsonObject.get("validTime").getAsString();
+			String name = jsonObject.get("name").getAsString();
+			String value = jsonObject.get("value").getAsString();
+			String unit = jsonObject.get("unit").getAsString();
+	
+			message = "<strong>" + validTime +":</strong>" + name +" " + value + " " + unit + "<br>";
+			
+			printToFile(message);
+		} 
+		return message;
 	}
 	
 	//create message to send
@@ -43,6 +63,7 @@ public class HtmlPrinter {
 		*/
 			
 			weatherOutfile.write(message.getBytes());
+			weatherOutfile.close();
 			
 		} catch (FileNotFoundException fileNotFound) {
 			System.err.println("File not found " + fileNotFound.getMessage());
@@ -63,6 +84,22 @@ public class HtmlPrinter {
 		}
 			
 		return message;
+	}
+	
+	//create messageTemplate
+	public String createMessageTemplate(String origin, boolean header) {
+		String messageTemplate;
+		if (origin=="WeatherTweet")
+			messageTemplate = "v0: v1. Temperature v2 degrees Celsius.";
+		if (origin =="Twitter")
+			messageTemplate = "Twitter v0: v1 TODO v2 Twitter";
+		if (origin=="Location")
+			messageTemplate = "Forecast for v0";
+		else 
+			messageTemplate = null;
+		if (header)
+			messageTemplate = "<h1>" + messageTemplate + "</h1>";
+		return messageTemplate;
 	}
 	
 }
