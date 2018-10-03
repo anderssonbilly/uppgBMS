@@ -366,7 +366,7 @@ public class Weather {
 			try {
 				jsonObject = (JsonObject) parser.parse(json);
 				// System.out.println("Got a JsonObject");
-				// System.out.println("Detta är ett jsonObject: " + jsonObject);
+				// System.out.println("This is a jsonObject: " + jsonObject);
 			} catch (JsonSyntaxException e) {
 				System.out.println("Something wrong with the JSON - you've got a JsonSyntaxException");
 				System.out.println(e.toString());

@@ -13,6 +13,7 @@ public class WeatherSelector {
 	Weather weatherSelected = new Weather();
 
 	 public JsonObject createSelectedWeatherObject(JsonObject jsonObjectTemp, JsonObject jsonObjectForecast) {
+		 //TODO: add check that validTime is the same in both objects
 		 String temperature = jsonObjectTemp.get("temperature").getAsString();
 		 String validTime = jsonObjectForecast.get("validTime").getAsString();
 		 String forecast = jsonObjectForecast.get("forecast").getAsString();
@@ -29,6 +30,7 @@ public class WeatherSelector {
 	
 	 
 	//get temperature new
+	 //TODO check that appropriate record is selected
 	 public JsonObject createTempObject(JsonArray weatherForecast) { //TODO change to array?
 		 JsonObject jsonObject = null;
 		 for(JsonElement element : weatherForecast) {
@@ -48,7 +50,7 @@ public class WeatherSelector {
 			  
 			  String json = weatherSelected.createJsonStringFromWeather(weather);
 			  jsonObject = weatherSelected.createJsonObjectFromJsonString(json);
-			  break;	
+			  break;	// will only keep first measurement
 			 } 
 		 }
 		System.out.println("Temp jsonobject created in getTempjson: " +jsonObject);
@@ -58,6 +60,7 @@ public class WeatherSelector {
 	
 	 
 	 //get forecast
+	//TODO check that appropriate record is selected
 	 public JsonObject createForecastObject(JsonArray weatherForecast) { //TODO change to array?
 		 JsonObject jsonObject = null;
 		 for(JsonElement element : weatherForecast) {
@@ -88,12 +91,12 @@ public class WeatherSelector {
 				Weather weather = new Weather(validTime, forecast, temperature);
 				Gson gson = new Gson();
 				String json = gson.toJson(weather);
-				System.out.println("This is selected json: " + json); //for reference only
+			//	System.out.println("This is selected json: " + json); //for reference only
 				JsonObject jsonObject = null;
 				JsonParser parser = new JsonParser();
 				try {
 					jsonObject = (JsonObject) parser.parse(json);
-					// System.out.println("Detta är ett jsonObject: " + jsonObject);
+					// System.out.println("This is a jsonObject: " + jsonObject);
 				} catch (JsonSyntaxException e) {
 					System.out.println("Something wrong with the JSON - you've got a JsonSyntaxException");
 					System.out.println(e.toString());
