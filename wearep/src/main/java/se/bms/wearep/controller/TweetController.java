@@ -50,6 +50,7 @@ public class TweetController extends AuthorizationObserver {
 
 	@FXML
 	protected void tweet(ActionEvent event) throws IOException {
+		// TODO Display error to user
 		String msg = tweet.getText();
 		if (authorized) {
 			if(twitter.tweet(msg)) {
