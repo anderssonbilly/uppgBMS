@@ -95,9 +95,7 @@ public class Twitter4J {
 	}
 
 	public void addObserver(AuthorizationObserver o) {
-		System.out.println(o);
-		if(!observers.contains(o))
-			observers.add(o);
+		observers.add(o);
 		isAuthorized();
 	}
 

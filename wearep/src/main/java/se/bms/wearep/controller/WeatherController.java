@@ -47,7 +47,7 @@ public class WeatherController{
 		weather.getChildren().setAll((Parent) loader.load());
 
 		WebViewController webView = loader.getController();
-		webView.changeWebpage(url); // should be the twitter login url
+		webView.changeWebpage(url);
 		webView.setControls(new FXMLLoader(getClass().getResource("../view/weathercon.fxml")));
 	}
 

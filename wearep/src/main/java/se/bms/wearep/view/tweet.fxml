@@ -5,20 +5,19 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.bms.wearep.controller.TweetController">
    <children>
       <Button layoutX="572.0" layoutY="34.0" mnemonicParsing="false" style="-fx-background-radius: 50;" text="Tweet">
          <font>
             <Font size="48.0" />
          </font>
       </Button>
-      <TextArea id="tweet" layoutX="26.0" layoutY="10.0" prefHeight="150.0" prefWidth="500.0" promptText="your message...">
+      <TextArea fx:id="tweet" layoutX="26.0" layoutY="10.0" onKeyTyped="#checkCharacters" prefHeight="150.0" prefWidth="500.0" promptText="your message..." wrapText="true">
          <font>
             <Font size="24.0" />
          </font>
       </TextArea>
-      <Label id="characters" layoutX="480.0" layoutY="160.0" text="0/140">
+      <Label fx:id="characters" layoutX="480.0" layoutY="160.0" text="0/140">
          <font>
             <Font size="18.0" />
          </font>

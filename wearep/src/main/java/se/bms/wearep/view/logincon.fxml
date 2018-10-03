@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.bms.wearep.controller.TwitterController">
+<Pane fx:id="loginCon" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.bms.wearep.controller.TwitterLoginControlController">
    <children>
       <TextField id="pin" layoutX="14.0" layoutY="62.0" prefHeight="77.0" prefWidth="500.0" promptText="Enter pin...">
          <font>
@@ -17,5 +17,10 @@
             <Font size="48.0" />
          </font>
       </Button>
+      <Label fx:id="loginInfo" alignment="CENTER" layoutX="150.0" layoutY="14.0" prefWidth="500.0" textFill="RED">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
