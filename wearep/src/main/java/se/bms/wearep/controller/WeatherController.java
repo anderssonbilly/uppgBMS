@@ -5,28 +5,17 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-public class WeatherController {
+public class WeatherController{
 
 	@FXML
 	protected Pane weather;
 
 	@FXML
 	protected TextField city;
-
-	@FXML
-	protected Button tweetWeatherBtn;
-	
-	@FXML
-	public void initialize() {
-		
-	}
 	
 	@FXML
 	public void getWeather(ActionEvent event) throws IOException {
@@ -37,16 +26,7 @@ public class WeatherController {
 		changeToBrowser("http://www.smhi.se/");
 	}
 
-	@FXML
-	public void tweetWeather(ActionEvent event) {
-		// tweet the current weather
-		if (TwitterController.getTwitter().isAuthorized()) {
-			System.out.println("Tweeting weather");
-			((Button) event.getSource()).disableProperty().set(true);
-			((Label) ((Node) event.getSource()).getParent().getScene().lookup("#status")).setText("tweeting...");
-		}else
-			System.err.println("Not authorized");
-	}
+
 
 	private Double[] getCoords(String city) {
 		// get coords from city
@@ -70,5 +50,5 @@ public class WeatherController {
 		webView.changeWebpage(url); // should be the twitter login url
 		webView.setControls(new FXMLLoader(getClass().getResource("../view/weathercon.fxml")));
 	}
-	
+
 }

@@ -1,5 +1,9 @@
 package se.bms.wearep.twitter4j;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import se.bms.wearep.observer.AuthorizationObserver;
 import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.Twitter;
@@ -18,6 +22,8 @@ public class Twitter4J {
 
 	private TwitterFactory tf;
 
+	private final List<AuthorizationObserver> observers = new ArrayList<>();
+
 	public Twitter4J() {
 		this.tf = new TwitterFactory();
 
@@ -26,13 +32,21 @@ public class Twitter4J {
 	}
 
 	public boolean authorize(String pin) {
-		if (requestToken != null)
+		if (requestToken != null) {
 			this.accessToken = auth.validatePin(pin, requestToken, twitter);
-		else {
+			if (accessToken != null) {
+				updateObservers(true);
+				return true;
+			} else {
+				updateObservers(false);
+				return false;
+			}
+		} else {
 			System.err.println("No request token found");
+			updateObservers(false);
 			return false;
 		}
-		return (accessToken != null) ? true : false;
+
 	}
 
 	public String getAuthURL() {
@@ -60,7 +74,6 @@ public class Twitter4J {
 
 	private RequestToken getRequestToken() {
 		this.twitter = tf.getInstance();
-
 		try {
 			return twitter.getOAuthRequestToken();
 		} catch (TwitterException e) {
@@ -71,6 +84,26 @@ public class Twitter4J {
 	}
 
 	public boolean isAuthorized() {
-		return (requestToken != null) ? twitter.getAuthorization().isEnabled() : false;
+		if (requestToken != null) {
+			boolean a = twitter.getAuthorization().isEnabled();
+			updateObservers(a);
+			return a;
+		} else {
+			updateObservers(false);
+			return false;
+		}
+	}
+
+	public void addObserver(AuthorizationObserver o) {
+		System.out.println(o);
+		if(!observers.contains(o))
+			observers.add(o);
+		isAuthorized();
+	}
+
+	private void updateObservers(boolean isAuthorized) {
+		for (AuthorizationObserver observer : observers) {
+			observer.update(isAuthorized);
+		}
 	}
 }

@@ -26,8 +26,7 @@ public class TwitterController extends AnchorPane {
 
 	@FXML
 	public void twitterLogin() throws IOException {
-
-		changeToBrowser(twitter4j.getAuthURL()); // for tests
+		changeToBrowser(twitter4j.getAuthURL());
 	}
 
 	@FXML
@@ -38,8 +37,13 @@ public class TwitterController extends AnchorPane {
 	}
 
 	private void authenticate(String pin) {
-		if (twitter4j.authorize(pin))
-			;
+		if (twitter4j.authorize(pin)) {
+			// change to show tweets
+			System.out.println("Authentication sucess");
+		} else {
+			// give error message and display new login prompt
+			System.out.println("Authentication failed");
+		}
 	}
 
 	private void changeToBrowser(String url) throws IOException {
