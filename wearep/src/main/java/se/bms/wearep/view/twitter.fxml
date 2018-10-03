@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="twitter" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.bms.wearep.controller.TwitterController">
+<Pane fx:id="twitter" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.bms.wearep.controller.TwitterController">
    <children>
       <Button defaultButton="true" layoutX="278.0" layoutY="332.0" mnemonicParsing="false" onAction="#twitterLogin" style="-fx-background-radius: 50;" text="Login" textAlignment="CENTER">
          <font>

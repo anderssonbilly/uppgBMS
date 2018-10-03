@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<Pane fx:id="weather" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.bms.wearep.controller.WeatherController">
+<Pane fx:id="weather" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.bms.wearep.controller.WeatherController">
    <children>
       <Label layoutX="220.0" layoutY="24.0" text="Weather">
          <font>

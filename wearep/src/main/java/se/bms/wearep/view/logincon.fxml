@@ -12,7 +12,7 @@
             <Font size="36.0" />
          </font>
       </TextField>
-      <Button defaultButton="true" layoutX="572.0" layoutY="49.0" mnemonicParsing="false" onAction="#enterPin" style="-fx-background-radius: 50;" text="Login">
+      <Button layoutX="572.0" layoutY="49.0" mnemonicParsing="false" onAction="#enterPin" style="-fx-background-radius: 50;" text="Login">
          <font>
             <Font size="48.0" />
          </font>
