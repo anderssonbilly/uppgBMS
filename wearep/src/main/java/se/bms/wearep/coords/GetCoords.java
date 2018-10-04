@@ -51,7 +51,7 @@ public class GetCoords {
 			System.out.println("Something went wrong with the JSON parser");
 			e.printStackTrace();
 		}
-		longitude = (Double) json5.get("lng");		
+		longitude = (Double) json5.get("lng");
 		latitude = (Double) json5.get("lat");
 	}
 	
@@ -93,17 +93,27 @@ public class GetCoords {
 	public Double getLongitude() {
 		
 		if(longitude != null) {
-		return longitude;
+			double tmpLongitude = longitude;
+			tmpLongitude = Math.round(tmpLongitude * 1000) / 1000.0;
+			Double roundedLongitude = tmpLongitude;
+			
+		return roundedLongitude;
 		}
 		else return 0.000;
 	}
 	
 	public Double getLatitude() {
 		if(latitude != null) {
-			return latitude;
+			double tmpLatitude = latitude;
+			tmpLatitude = Math.round(tmpLatitude * 1000) / 1000.0;
+			Double roundedLatitude = tmpLatitude;
+			return roundedLatitude;
 			}
 			else return 0.000;
 	}
+	
+	
+	
 }
 	
 	
