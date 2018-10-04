@@ -20,24 +20,18 @@ public class GetCoords {
 	Double longitude = null;
 	Double latitude = null;
 	
-	public Double[] run(String tmpCity) {
+	public void run(String tmpCity) {
 		city = tmpCity;
 		setURL();
 		collectJSON(tempURL);
 		parseJSON();
-		return new Double[] {longitude, latitude};
-	}
-	
-	public String getCity() {
-		return city;
+		
 	}
 	
 	private void setURL() {
-		if(city != "") {
-			tempURL = firstHalfURL + city + secondHalfURL; // creates the url with users input
-
-		}
 		
+		tempURL = firstHalfURL + city + secondHalfURL; // creates the url with users input
+
 	}
 	
 	private void parseJSON() {
@@ -92,4 +86,25 @@ public class GetCoords {
 		
 	}
 
+	public String getCity() {
+		return city;
+	}
+	
+	public Double getLongitude() {
+		
+		if(longitude != null) {
+		return longitude;
+		}
+		else return 0.000;
+	}
+	
+	public Double getLatitude() {
+		if(latitude != null) {
+			return latitude;
+			}
+			else return 0.000;
+	}
 }
+	
+	
+	
