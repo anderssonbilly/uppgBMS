@@ -91,14 +91,5 @@ public class GetCoords {
 		}
 		
 	}
-	
-	
-	public static void main(String[] args) {
-		GetCoords test = new GetCoords();
-		Double[] output = (test.run("Stockholm"));
-		System.out.println(output[0]);	
-		System.out.println(output[1]);
-		
-	}
 
 }
