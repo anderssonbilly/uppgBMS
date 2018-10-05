@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import se.bms.wearep.dataout.HtmlPrinter;
+import se.bms.wearep.dataout.WeatherMessage;
 
 public class WeatherLauncher {
 
@@ -26,7 +27,8 @@ public class WeatherLauncher {
 		JsonObject jsonObjectTemp = weatherSelector.createTempObject(weatherForecast);
 		JsonObject jsonObjectForecast = weatherSelector.createForecastObject(weatherForecast);
 		JsonObject selectedWeatherObject = weatherSelector.createSelectedWeatherObject(jsonObjectTemp, jsonObjectForecast);
-		String message = printer.createMessage(location, selectedWeatherObject);
+		WeatherMessage weatherMessage = new WeatherMessage();
+		String message = weatherMessage.createMessage(location, selectedWeatherObject);
 		System.out.println(message);
 
 	}
