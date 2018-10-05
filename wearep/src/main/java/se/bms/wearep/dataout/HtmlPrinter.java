@@ -37,13 +37,13 @@ public class HtmlPrinter {
 	}
 	
 	//create twitter Weather message
-		public String createMessage(JsonObject selectedWeatherObject) {
+		public String createMessage(String location, JsonObject selectedWeatherObject) {
 		
 			String validTime = selectedWeatherObject.get("validTime").getAsString();
 			String temperature = selectedWeatherObject.get("temperature").getAsString();
 			String forecast = selectedWeatherObject.get("forecast").getAsString();
 			
-			String message = "Forecast for "+ validTime + ": " + forecast + ". Temperature " + temperature + " degrees Celsius.";
+			String message = "Forecast for " + location + " " + validTime + ": " + forecast + ". Temperature " + temperature + " degrees Celsius.";
 			
 			return message;
 		}

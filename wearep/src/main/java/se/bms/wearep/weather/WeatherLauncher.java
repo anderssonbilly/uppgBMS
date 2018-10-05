@@ -21,10 +21,13 @@ public class WeatherLauncher {
 		String location = "Uddevalla"; //TODO replace with below call to method to get location
 		//String location = getCoords.cityToCoords;
 		printer.createWeatherHtmlPage(pageTitle, location, weatherForecast);
-		
-		
-		
-		//TODO add to get twitter part
-		//printer.createMessage(selectedWeatherObject);
+		//for Twitter message
+		WeatherSelector weatherSelector = new WeatherSelector();
+		JsonObject jsonObjectTemp = weatherSelector.createTempObject(weatherForecast);
+		JsonObject jsonObjectForecast = weatherSelector.createForecastObject(weatherForecast);
+		JsonObject selectedWeatherObject = weatherSelector.createSelectedWeatherObject(jsonObjectTemp, jsonObjectForecast);
+		String message = printer.createMessage(location, selectedWeatherObject);
+		System.out.println(message);
+
 	}
 }
