@@ -1,3 +1,4 @@
+/*
 package se.bms.wearep.weather;
 
 import com.google.gson.JsonArray;
@@ -22,7 +23,9 @@ public class WeatherDemo {
 		JsonObject jsonTree = weather.createJSONObjectFromSMHIdata(indata);
 		JsonArray weatherForecast = weather.createJSONArrayOfMeasurements(jsonTree);
 		HtmlPrinter printer = new HtmlPrinter();
-		String message = printer.createMessageFromJsonArray(weatherForecast);
+		String pageTitle = "Weather forecast";
+		printer.createWeatherHtmlPage(pageTitle, weatherForecast);
+	//TODO	String message = printer.createMessageFromJsonArray(weatherForecast);
 	//TODO3	printer.printToFile(message);
 		//TODO2WeatherSelector weatherSelector = new WeatherSelector();
 		//TODO2JsonObject jsonObjectTemp = weatherSelector.createTempObject(weatherForecast);
@@ -31,7 +34,7 @@ public class WeatherDemo {
 		//TODO HtmlPrinter printer = new HtmlPrinter();
 		//TODO String message = printer.createMessage(selectedWeatherObject);
 		//TODO printer.printToFile(message);
-		/*
+		
 		// alternative way with more general method to create message
 		HtmlPrinter printer = new HtmlPrinter();
 		String origin = "location";
@@ -50,7 +53,7 @@ public class WeatherDemo {
 		message = printer.createMessageGeneral(selectedWeatherObject, variables, messageTemplate);
 		printer.printToFile(message);
 		//testing until here
-	*/
+	
 	//	String defaultUrl = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/x/lat/y/data.json";
 	//	Double [] coord = new Double[] {0.0, 0.0};
 	//	coord [0] = 10.2;
@@ -60,3 +63,4 @@ public class WeatherDemo {
 		
 	}
 }
+*/
