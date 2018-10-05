@@ -110,7 +110,7 @@ public class GetCoords {
 	
 	private double round(Double toBeRounded) {
 		double rounding = toBeRounded;
-		rounding = Math.round(rounding * 1000) / 1000.0;
+		rounding = Math.round(rounding * 1000000) / 1000000.0;
 		return rounding;
 	}
 	
