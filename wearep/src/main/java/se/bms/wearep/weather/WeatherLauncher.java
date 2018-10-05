@@ -20,7 +20,7 @@ public class WeatherLauncher {
 		HtmlPrinter printer = new HtmlPrinter();
 		String pageTitle = "Weather forecast";
 		String location = "Uddevalla"; //TODO replace with below call to method to get location
-		//String location = getCoords.cityToCoords;
+		//String location = GetCoords.cityToCoords;
 		printer.createWeatherHtmlPage(pageTitle, location, weatherForecast);
 		//for Twitter message
 		WeatherSelector weatherSelector = new WeatherSelector();

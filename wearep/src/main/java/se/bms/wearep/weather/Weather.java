@@ -242,7 +242,86 @@ public class Weather {
 		System.out.println("Forecast approved: "+ approvedTime);
 	return approvedTime;
 	}
-		
+	
+	
+	// TODO testing new method starting here
+	
+	// Create JSonArray with weather data JSONObjects for each measurement		
+		public JsonArray createJSONArrayOfMeasurements(JsonObject jsonTree) {
+	        String forecastStartTime = getStringFromElementInJsonObject("referenceTime", jsonTree);
+	        forecastStartTime = formatStringDate(forecastStartTime);
+	        String approvedTime = getStringFromElementInJsonObject("approvedTime", jsonTree);
+	        approvedTime = formatStringDate(approvedTime);
+	        String jsonArrayName = "timeSeries";
+	        JsonArray timeSeries = getJsonArrayFromJsonObject(jsonArrayName, jsonTree);
+	        for(int i=0;i<timeSeries.size();i++) {
+	            String validTime = getStringFromJsonArray(timeSeries, i, "validTime");
+	            validTime = formatStringDate(validTime);
+	            JsonArray parameters = getJsonArrayFromJsonArray(timeSeries, "parameters", i);
+	            for(int j=0;j<parameters.size();j++) {
+	                String name = getStringFromJsonArray(parameters, j, "name");
+	                String unit = getStringFromJsonArray(parameters, j, "unit");
+	                JsonArray results = getJsonArrayFromJsonArray(parameters, "values", j);
+	                for (int k=0; k<results.size(); k++) {
+	                	Object valuesObject = results.get(k);
+						String value = (String) valuesObject.toString();
+	                    name = updateName(name);	
+						if(name == "Percent of precipitation in frozen form")
+							value = updateValueSpp(value);
+						if(name == "Precipitation category") 
+							value = updateValuePcat(value);
+						if(name == "Weather symbol") 
+	                        value = updateValueWSymb2(value); 
+	                        System.out.println("Forecast for: " + validTime + ". Approved on " + approvedTime + " and valid from (forecast start) " + forecastStartTime + " " + name + ": " + value + " " + unit);
+	                        JsonObject jsonWeather = createJsonWeatherObject(validTime, name, value, unit, approvedTime,forecastStartTime);
+	                        weatherForecast.add(jsonWeather);
+	                    }
+	                
+	            }
+	        }
+	        return weatherForecast;
+	    }
+
+	// get JsonArray from JsonArray  //Not used?
+		public JsonArray getJsonArrayFromJsonArray(JsonArray jsonArray, String newJsonArrayName, int i) {	
+			JsonObject jsonObject = getJsonObjectFromJsonArray(jsonArray, i);
+			JsonArray newJsonArray = (JsonArray) jsonObject.get(newJsonArrayName);
+	    return newJsonArray;
+	    }
+
+	  
+	 // String validTime = selectedWeatherObject.get("validTime").getAsString();
+
+	    public String getStringFromElementInJsonObject(String variableName, JsonObject jsonObject) {
+	    String variable = jsonObject.get(variableName).getAsString();
+	    return variable;
+	    }
+
+	// Get JSonArray from JsonObject
+	    public JsonArray getJsonArrayFromJsonObject(String jsonArrayName, JsonObject jsonObject) {	
+	        JsonArray jsonArray = (JsonArray) jsonObject.get(jsonArrayName);
+	    return jsonArray;
+	    }
+
+	// Get JSonObject from JsonArray
+	    public JsonObject getJsonObjectFromJsonArray(JsonArray jsonArray, int i) {	
+	        JsonObject jsonObject = (JsonObject) jsonArray.get(i);
+	    return jsonObject;
+	    }
+
+	//get String from Json Array
+	    public String getStringFromJsonArray(JsonArray jsonArray, int i, String variableName) {
+	        JsonObject jsonObject = getJsonObjectFromJsonArray(jsonArray, i);
+	        String variable = getStringFromElementInJsonObject(variableName, jsonObject);
+	        return variable;
+	    }
+	
+	
+	
+	
+	//TODO Testing new methods ending here
+	
+	
 	// Create timeSeries JSonArray
 	public JsonArray createTimeSeriesJsonArrayFromJSonObject(JsonObject jsonTree) {	
 		JsonArray timeSeries = (JsonArray) jsonTree.get("timeSeries");
@@ -296,7 +375,7 @@ public class Weather {
 	}
 		
 	// Create JSonArray with weather data JSONObjects for each measurement		
-	public JsonArray createJSONArrayOfMeasurements(JsonObject jsonTree) {
+	public JsonArray createJSONArrayOfMeasurementsOLD(JsonObject jsonTree) {
 		JsonElement forecastStartTimeElement = returnForecastStartTime(jsonTree);
 		String forecastStartTime = forecastStartTimeElement.getAsString();
 		forecastStartTime = formatStringDate(forecastStartTime);
