@@ -13,8 +13,8 @@ import org.json.simple.parser.ParseException;
 
 public class GetCoords {
 	String city = "";
-	String firstHalfURL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
-	String secondHalfURL = "&sensor=false&key=AIzaSyDb5BNaLMM4s_e_-EJN7_Wj8EiUM6_FC08";
+	final String firstHalfURL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+	final String secondHalfURL = "&sensor=false&key=AIzaSyDb5BNaLMM4s_e_-EJN7_Wj8EiUM6_FC08";
 	String tempURL = "";
 	String rawData = "";	// temporary variable for storing all the data from the API to be parsed
 	Double longitude = null;
@@ -93,9 +93,7 @@ public class GetCoords {
 	public Double getLongitude() {
 		
 		if(longitude != null) {
-			double tmpLongitude = longitude;
-			tmpLongitude = Math.round(tmpLongitude * 1000) / 1000.0;
-			Double roundedLongitude = tmpLongitude;
+			Double roundedLongitude = round(longitude);
 			
 		return roundedLongitude;
 		}
@@ -104,15 +102,17 @@ public class GetCoords {
 	
 	public Double getLatitude() {
 		if(latitude != null) {
-			double tmpLatitude = latitude;
-			tmpLatitude = Math.round(tmpLatitude * 1000) / 1000.0;
-			Double roundedLatitude = tmpLatitude;
+			Double roundedLatitude = round(latitude);
 			return roundedLatitude;
 			}
 			else return 0.000;
 	}
 	
-	
+	private double round(Double toBeRounded) {
+		double rounding = toBeRounded;
+		rounding = Math.round(rounding * 1000) / 1000.0;
+		return rounding;
+	}
 	
 }
 	
