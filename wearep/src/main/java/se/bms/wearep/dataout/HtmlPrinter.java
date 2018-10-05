@@ -15,6 +15,7 @@ public class HtmlPrinter {
 		
 	}
 	
+	// create weather message to publish as html
 	public String createMessageFromJsonArray(JsonArray weatherForecast) {
 		JsonArray jsonArray = weatherForecast;
 		String validTime = "";
@@ -34,7 +35,7 @@ public class HtmlPrinter {
 		return message;
 	}
 	
-	//create message to send
+	//create twitter Weather message
 		public String createMessage(JsonObject selectedWeatherObject) {
 		
 			String validTime = selectedWeatherObject.get("validTime").getAsString();
@@ -91,8 +92,8 @@ public class HtmlPrinter {
 		String messageTemplate;
 		if (origin=="WeatherTweet")
 			messageTemplate = "v0: v1. Temperature v2 degrees Celsius.";
-		if (origin =="Twitter")
-			messageTemplate = "Twitter v0: v1 TODO v2 Twitter";
+		//if (origin =="Twitter")
+		//	messageTemplate = "Twitter v0: v1 TODO v2 Twitter";
 		if (origin=="Location")
 			messageTemplate = "Forecast for v0";
 		else 
@@ -102,6 +103,36 @@ public class HtmlPrinter {
 		return messageTemplate;
 	}
 	
+	// create html page first part
+	public String createMessageHtmlPageSetup(String pageTitle) { //TODO add String pageTitle to skapa metoden
+		String message = "<html>\r\n" + 
+				"	\r\n" + 
+				"	<head>\r\n" + 
+				"	\r\n" + 
+				"		<title>" + pageTitle +"</title>\r\n" + 
+				"\r\n" + 
+				"	</head>\r\n" + 
+				"\r\n" + 
+				"	<body>";
+		return message;
+		
+	}
+	
+	// create html page ending
+	public String createMessageHtmlPageEnding() {
+		String message = "</body>\r\n" + 
+				"\r\n" + 
+				"</html>";
+		return message;
+	}
+	// create html page
+	public void createWeatherHtmlPage(String pageTitle, JsonArray weatherForecast) {
+		String message = createMessageHtmlPageSetup(pageTitle);
+		printToFile(message);
+		createMessageFromJsonArray(weatherForecast);
+		message = createMessageHtmlPageEnding();
+		printToFile(message);
+	}
 }
 
 
