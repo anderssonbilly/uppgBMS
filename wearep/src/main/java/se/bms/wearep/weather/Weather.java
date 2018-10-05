@@ -263,11 +263,8 @@ public class Weather {
 	
 	// Create JSonArray with weather data JSONObjects for each measurement		
 		public JsonArray createJSONArrayOfMeasurements(JsonObject jsonTree) {
-			//String forecastStartTime = getStringFromElementInJsonObject("referenceTime", jsonTree);
-	       // forecastStartTime = formatStringDate(forecastStartTime);
 			String forecastStartTime = getFormattedForecastStartTime(jsonTree);
-	        String approvedTime = getStringFromElementInJsonObject("approvedTime", jsonTree);
-	        approvedTime = formatStringDate(approvedTime);
+			String approvedTime = getFormattedApprovedTime(jsonTree);
 	        String jsonArrayName = "timeSeries";
 	        JsonArray timeSeries = getJsonArrayFromJsonObject(jsonArrayName, jsonTree);
 	        for(int i=0;i<timeSeries.size();i++) {
