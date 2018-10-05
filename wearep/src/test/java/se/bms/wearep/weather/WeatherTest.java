@@ -76,18 +76,6 @@ class WeatherTest {
 	}
 
 
-	@Test
-	final void testCreateTimeSeriesJsonArrayFromJSonObject() { // TODO "real" mocking
-		// Arrange
-		Weather weather = new Weather();
-		String indata = "{\"approvedTime\":\"2018-09-28T15:38:32Z\",\"referenceTime\":\"2018-09-28T15:00:00Z\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[[10.188115,68.394796]]},\"timeSeries\":[{\"validTime\":\"2018-09-28T16:00:00Z\",\"parameters\":[{\"name\":\"spp\",\"levelType\":\"hl\",\"level\":0,\"unit\":\"percent\",\"values\":[-9]}]}]}";
-		JsonObject jsonTree = weather.createJSONObjectFromSMHIdata(indata);
-		// Act
-		JsonArray actual = weather.createTimeSeriesJsonArrayFromJSonObject(jsonTree);
-		//Assert
-		assertTrue(actual.isJsonArray());
-	}
-
 
 	@Test
 	final void testCreateJSONArrayOfMeasurements() { // TODO better test with mocking
@@ -113,5 +101,19 @@ class WeatherTest {
 		assertEquals(expected, actual);
 	}
 	
-
+	/*
+	// Tested method removed as not used
+	@Test
+	final void testCreateTimeSeriesJsonArrayFromJSonObject() { // TODO "real" mocking
+		// Arrange
+		Weather weather = new Weather();
+		String indata = "{\"approvedTime\":\"2018-09-28T15:38:32Z\",\"referenceTime\":\"2018-09-28T15:00:00Z\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[[10.188115,68.394796]]},\"timeSeries\":[{\"validTime\":\"2018-09-28T16:00:00Z\",\"parameters\":[{\"name\":\"spp\",\"levelType\":\"hl\",\"level\":0,\"unit\":\"percent\",\"values\":[-9]}]}]}";
+		JsonObject jsonTree = weather.createJSONObjectFromSMHIdata(indata);
+		// Act
+		JsonArray actual = weather.createTimeSeriesJsonArrayFromJSonObject(jsonTree);
+		//Assert
+		assertTrue(actual.isJsonArray());
+	}
+*/
+	
 }

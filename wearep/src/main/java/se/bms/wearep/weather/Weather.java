@@ -242,9 +242,7 @@ public class Weather {
 		System.out.println("Forecast approved: "+ approvedTime);
 	return approvedTime;
 	}
-	
-	
-	// TODO testing new method starting here
+
 	
 	// Create JSonArray with weather data JSONObjects for each measurement		
 		public JsonArray createJSONArrayOfMeasurements(JsonObject jsonTree) {
@@ -316,56 +314,7 @@ public class Weather {
 	        return variable;
 	    }
 	
-	
-	
-	
-	//TODO Testing new methods ending here
-	
-	
-	// Create timeSeries JSonArray
-	public JsonArray createTimeSeriesJsonArrayFromJSonObject(JsonObject jsonTree) {	
-		JsonArray timeSeries = (JsonArray) jsonTree.get("timeSeries");
-		// System.out.println("Got a timeSeries JsonArray");
-		// System.out.println(timeSeries);
-	return timeSeries;
-	}
-	
-	// TODO check this - use to replace and make more general
-	// Create general JSonArray
-		public JsonArray createJsonArrayFromJSonObject(JsonObject jsonObject, String memberName) {	
-			JsonArray jsonArray= (JsonArray) jsonObject.get(memberName);
-			// System.out.println("Got a timeSeries JsonArray");
-			// System.out.println(timeSeries);
-		return jsonArray;
-		}
-		
-	/*	
-	// Create parameters JSonArray
-	public JsonArray createParametersJsonArray(JsonArray timeSeries) {
-		JsonArray parameters = null;
-		for(int i=0;i<timeSeries.size();i++) {
-			JsonObject parametersObject = (JsonObject)timeSeries.get(i);
-			parameters = (JsonArray) parametersObject.get("parameters");
-			// System.out.println("Got a parameters JsonArray"); // for reference only
-			// System.out.println("Parameters JSON-array: " + parameters);
-			}
-		return parameters;
-	}
-		*/
-	/*
-	// Create results JSonArray //TODO
-	public JsonArray createResultsJsonArray(JsonArray parameters) {
-		JsonArray results = null;
-		for(int j=0;j<parameters.size();j++) {
-			JsonObject resultsObject = (JsonObject)parameters.get(j);
-			results = (JsonArray) resultsObject.get("values");
-		//	System.out.println("Got a results JsonArray"); // for reference only
-			System.out.println("Results JSON-array: " + results);
-			JsonElement name = resultsObject.get("name");
-			}
-		return parameters;
-	}
-	*/
+
 	
 	//Format date string
 	public String formatStringDate(String dateString) {
@@ -374,64 +323,6 @@ public class Weather {
 		return dateString;
 	}
 		
-	// Create JSonArray with weather data JSONObjects for each measurement		
-	public JsonArray createJSONArrayOfMeasurementsOLD(JsonObject jsonTree) {
-		JsonElement forecastStartTimeElement = returnForecastStartTime(jsonTree);
-		String forecastStartTime = forecastStartTimeElement.getAsString();
-		forecastStartTime = formatStringDate(forecastStartTime);
-		JsonElement approvedTimeElement = returnForecastApprovedTime(jsonTree);
-		String approvedTime = approvedTimeElement.getAsString();
-		approvedTime = formatStringDate(approvedTime);
-		//System.out.println(validTime);
-		JsonArray timeSeries = createTimeSeriesJsonArrayFromJSonObject(jsonTree);
-		for(int i=0;i<timeSeries.size();i++) {
-			JsonObject parametersObject = (JsonObject)timeSeries.get(i);
-			JsonArray parameters = (JsonArray) parametersObject.get("parameters");
-			JsonElement validTimeElement = parametersObject.get("validTime");
-			String validTime = validTimeElement.getAsString();
-			validTime = formatStringDate(validTime);
-			System.out.println("\nForecast for " + validTime);
-			// System.out.println("Got a parameters JsonArray"); // for reference only
-		//	System.out.println("Parameters JSON-array: " + parameters); for reference only
-			for(int j=0;j<parameters.size();j++) {
-				JsonObject resultsObject = (JsonObject)parameters.get(j);
-				JsonArray results = (JsonArray) resultsObject.get("values");
-			//	System.out.println("Got a results JsonArray"); // for reference only
-			//	System.out.println("Results: " + results);
-				JsonElement nameElement = resultsObject.get("name");
-				String name = nameElement.getAsString();
-			//	System.out.println("Name: " + name);
-				JsonElement unitElement = resultsObject.get("unit");
-				String unit = unitElement.getAsString();
-				for(int k=0;k<results.size();k++) {
-					Object valuesObject = results.get(k);
-					String value = (String) valuesObject.toString();
-				//	System.out.println("Got a String value"); // for reference only
-				//	System.out.println("Value: " + value);
-					name = updateName(name);	
-					if(name == "Percent of precipitation in frozen form")
-						value = updateValueSpp(value);
-					if(name == "Precipitation category") 
-						value = updateValuePcat(value);
-					if(name == "Weather symbol") 
-						value = updateValueWSymb2(value);
-					
-				//	System.out.println("Forecast for: " + validTime + ". Approved on " + approvedTime + " and valid from (forecast start) " + forecastStartTime + " " + name + ": " + value + " " + unit); //TODO
-					System.out.println(name + ": " + value + " " + unit );
-					JsonObject jsonWeather = createJsonWeatherObject(validTime, name, value, unit, approvedTime,forecastStartTime);
-					//String jsonWeather = createJsonWeatherObject(validTime, name, value, unit, approvedTime,forecastStartTime);
-					//System.out.println("This is jsonWeather from big method: " + jsonWeather); // for reference only	
-					weatherForecast.add(jsonWeather);
-					
-				}
-					
-			}
-		}
-		//System.out.println(validTime + " " + name + ": " + value + " " + unit + " " + approvedTime + " " + forecastStartTime);
-	//	System.out.println("This is weatherForecast: " + weatherForecast); //for reference only
-		return weatherForecast;
-		
-	}
 	
 
 	//Method to create JSON object not string
@@ -477,7 +368,7 @@ public class Weather {
 		}
 			
 	
-	
+	/*
 	//Method to create JSON object //TODO old, to be deleted
 	private String createJsonWeatherObject1(String validTime, String name, String value, String unit, String approvedTime, String forecastStartTime) {
 		Weather weather = new Weather(name, value, unit, forecastStartTime, approvedTime, validTime);
@@ -486,6 +377,8 @@ public class Weather {
 		//System.out.println("This is json from weather object: " + json); //for reference only
 	return json;
 	}
+	
+	*/
 	
 	// Method to set coordinates in URL
 	// Coordinates will be delivered as Double array: Double[] {longitude, latitude};
@@ -671,6 +564,7 @@ public class Weather {
 	public void setForecast(String forecast) {
 		this.forecast = forecast;
 	}
-		
+
+	
 }
 
