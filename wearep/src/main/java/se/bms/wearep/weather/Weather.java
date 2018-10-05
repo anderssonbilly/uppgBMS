@@ -242,19 +242,37 @@ public class Weather {
 		System.out.println("Forecast approved: "+ approvedTime);
 	return approvedTime;
 	}
+	
+	
+	// Get formatted forecast start time
+		public String getFormattedForecastStartTime(JsonObject jsonTree) {
+			String forecastStartTime = getStringFromElementInJsonObject("referenceTime", jsonTree);
+	        forecastStartTime = formatStringDate(forecastStartTime) + " UTC";
+			System.out.println("Forecast start time: "+ forecastStartTime);
+		return forecastStartTime;
+		}
+		
+	// Get formatted approved time
+			public String getFormattedApprovedTime(JsonObject jsonTree) {
+				String approvedTime = getStringFromElementInJsonObject("approvedTime", jsonTree);
+		        approvedTime = formatStringDate(approvedTime) + " UTC";
+				System.out.println("Approved time: "+ approvedTime);
+			return approvedTime;
+			}
 
 	
 	// Create JSonArray with weather data JSONObjects for each measurement		
 		public JsonArray createJSONArrayOfMeasurements(JsonObject jsonTree) {
-	        String forecastStartTime = getStringFromElementInJsonObject("referenceTime", jsonTree);
-	        forecastStartTime = formatStringDate(forecastStartTime);
+			//String forecastStartTime = getStringFromElementInJsonObject("referenceTime", jsonTree);
+	       // forecastStartTime = formatStringDate(forecastStartTime);
+			String forecastStartTime = getFormattedForecastStartTime(jsonTree);
 	        String approvedTime = getStringFromElementInJsonObject("approvedTime", jsonTree);
 	        approvedTime = formatStringDate(approvedTime);
 	        String jsonArrayName = "timeSeries";
 	        JsonArray timeSeries = getJsonArrayFromJsonObject(jsonArrayName, jsonTree);
 	        for(int i=0;i<timeSeries.size();i++) {
 	            String validTime = getStringFromJsonArray(timeSeries, i, "validTime");
-	            validTime = formatStringDate(validTime);
+	            validTime = formatStringDate(validTime) + " UTC";
 	            JsonArray parameters = getJsonArrayFromJsonArray(timeSeries, "parameters", i);
 	            for(int j=0;j<parameters.size();j++) {
 	                String name = getStringFromJsonArray(parameters, j, "name");
@@ -268,11 +286,12 @@ public class Weather {
 							value = updateValueSpp(value);
 						if(name == "Precipitation category") 
 							value = updateValuePcat(value);
-						if(name == "Weather symbol") 
+						if(name == "Forecast") 
 	                        value = updateValueWSymb2(value); 
-	                        System.out.println("Forecast for: " + validTime + ". Approved on " + approvedTime + " and valid from (forecast start) " + forecastStartTime + " " + name + ": " + value + " " + unit);
-	                        JsonObject jsonWeather = createJsonWeatherObject(validTime, name, value, unit, approvedTime,forecastStartTime);
-	                        weatherForecast.add(jsonWeather);
+						
+                        System.out.println("Forecast for: " + validTime + ". Approved on " + approvedTime + " and valid from (forecast start) " + forecastStartTime + " " + name + ": " + value + " " + unit);
+                        JsonObject jsonWeather = createJsonWeatherObject(validTime, name, value, unit, approvedTime,forecastStartTime);
+                        weatherForecast.add(jsonWeather);
 	                    }
 	                
 	            }
@@ -288,7 +307,7 @@ public class Weather {
 	    }
 
 	  
-	 // String validTime = selectedWeatherObject.get("validTime").getAsString();
+	
 
 	    public String getStringFromElementInJsonObject(String variableName, JsonObject jsonObject) {
 	    String variable = jsonObject.get(variableName).getAsString();
@@ -434,7 +453,7 @@ public class Weather {
 		case "pmedian": 
 			return name = "Median precipitation intensity";
 		case "Wsymb2": 
-			return name = "Weather symbol";
+			return name = "Forecast";
 		case "WSymb": 
 			return name = "Weather symbol old";
 		default:

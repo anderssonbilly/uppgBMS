@@ -69,7 +69,7 @@ public class WeatherSelector {
 			 String temperature = null;
 			 String unit = null;
 			
-			 if(element.getAsJsonObject().get("name").getAsString().equals("Weather symbol")) {
+			 if(element.getAsJsonObject().get("name").getAsString().equals("Forecast")) {
 				 
 				validTime = element.getAsJsonObject().get("validTime").getAsString();
 				forecast = element.getAsJsonObject().get("value").getAsString();
