@@ -177,8 +177,7 @@ public class Weather {
 		
 		try {
 			// This is an example url working: "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.6/lat/58.2/data.json"
-			Double [] coord = new Double[] {10.2, 68.4}; //TODO Replace with method to get coord
-			String forUrl = setCoordinatesInUrl(coord);
+			String forUrl = setCoordinatesInUrl();
 			URL url = new URL(forUrl);
 			HttpURLConnection connection = (HttpURLConnection)url.openConnection(); // parse URL to open connection
 			connection.setRequestMethod("GET"); // set method to request data
@@ -382,31 +381,19 @@ public class Weather {
 			}
 			return jsonObject;
 		}
-			
+		
+
 	
-	/*
-	//Method to create JSON object //TODO old, to be deleted
-	private String createJsonWeatherObject1(String validTime, String name, String value, String unit, String approvedTime, String forecastStartTime) {
-		Weather weather = new Weather(name, value, unit, forecastStartTime, approvedTime, validTime);
-		Gson gson = new Gson();
-		String json = gson.toJson(weather);
-		//System.out.println("This is json from weather object: " + json); //for reference only
-	return json;
-	}
-	
-	*/
-	
-	// Method to set coordinates in URL
-	// Coordinates will be delivered as Double array: Double[] {longitude, latitude};
-	public String setCoordinatesInUrl(Double [] coord) {
-		Double lon = coord[0];
-		Double lat = coord[1];
-		//defaultUrl = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/x/lat/y/data.json";
-		String url = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/" + lon + "/lat/" + lat + "/data.json";
-		System.out.println("URL for position " + lon + ", " + lat + " is: " + url);
-		return url;
-	}
-	
+	//New method to set coordinates in URL
+		public String setCoordinatesInUrl() {
+			//Double lon = GetCoords.getLongitude; //TODO
+			//Double lat = GetCoords.getLatitude; // TODO
+			Double lon = 10.213; //TODO Replace with call to get longitude above
+			Double lat = 68.425; //TODO Replace with call to get latitude above
+			String url = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/" + lon + "/lat/" + lat + "/data.json";
+			System.out.println("URL for position " + lon + ", " + lat + " is: " + url);
+			return url;
+		}
 	
 	// Method to switch name
 	private String updateName(String name) {
