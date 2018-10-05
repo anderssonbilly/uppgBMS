@@ -19,8 +19,9 @@ public class HtmlPrinter {
 	public String createMessageFromJsonArray(JsonArray weatherForecast) {
 		JsonArray jsonArray = weatherForecast;
 		String validTime = "";
-		String message = "<h1>Forecast for Uddevalla</h1>";
-		printToFile(message);
+		String message="";
+	//	String message = "<h1>Forecast for Uddevalla</h1>";
+	//	printToFile(message);
 		for(int i=0;i<jsonArray.size();i++) {
 			JsonObject jsonObject = (JsonObject)jsonArray.get(i);
 			validTime = jsonObject.get("validTime").getAsString();
@@ -104,7 +105,7 @@ public class HtmlPrinter {
 	}
 	
 	// create html page first part
-	public String createMessageHtmlPageSetup(String pageTitle) { //TODO add String pageTitle to skapa metoden
+	public String createMessageHtmlPageSetup(String pageTitle) { 
 		String message = "<html>\r\n" + 
 				"	\r\n" + 
 				"	<head>\r\n" + 
@@ -126,8 +127,10 @@ public class HtmlPrinter {
 		return message;
 	}
 	// create html page
-	public void createWeatherHtmlPage(String pageTitle, JsonArray weatherForecast) {
+	public void createWeatherHtmlPage(String pageTitle, String location, JsonArray weatherForecast) {
 		String message = createMessageHtmlPageSetup(pageTitle);
+		printToFile(message);
+		message = "<h1>Forecast for " + location + "</h1>";
 		printToFile(message);
 		createMessageFromJsonArray(weatherForecast);
 		message = createMessageHtmlPageEnding();

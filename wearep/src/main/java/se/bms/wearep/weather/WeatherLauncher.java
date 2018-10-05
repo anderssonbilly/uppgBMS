@@ -18,7 +18,9 @@ public class WeatherLauncher {
 		JsonArray weatherForecast = weather.createJSONArrayOfMeasurements(jsonTree);
 		HtmlPrinter printer = new HtmlPrinter();
 		String pageTitle = "Weather forecast";
-		printer.createWeatherHtmlPage(pageTitle, weatherForecast);
+		String location = "Uddevalla"; //TODO replace with below call to method to get location
+		//String location = getCoords.cityToCoords;
+		printer.createWeatherHtmlPage(pageTitle, location, weatherForecast);
 		
 		
 		
