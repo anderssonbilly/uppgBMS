@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		GetCoords getcoords = new GetCoords();
-		getcoords.run("Sundsandvik");
+		getcoords.run("Piteå");
 		System.out.println(getcoords);
 		String city = getcoords.getCity();
 		Double lon = getcoords.getLongitude();
