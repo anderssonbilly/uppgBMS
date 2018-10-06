@@ -1,5 +1,6 @@
 package se.bms.wearep.dataout;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,9 +23,12 @@ public class HtmlPrinter {
 	// Method to write to file
 	public void printToFile(String message) {
 		FileOutputStream weatherOutfile = null;
+		File outputFile = new File("weatherOutfile.html");
 		try {
+			outputFile.createNewFile();
+
 			//TODO change to appropriate path
-			weatherOutfile = new FileOutputStream("C:/Users/gospe/Documents/Ska_till_NAS/Systemintegratör/Datakommunikation_och_nätverk/weatherOutfile.html", true);
+			weatherOutfile = new FileOutputStream(outputFile, true);
 		//	weatherOutfile = new FileOutputStream("/src/weatherOutfile.html", true);
 			//TODO need to update path
 			/*

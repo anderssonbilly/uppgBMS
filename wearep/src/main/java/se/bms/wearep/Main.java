@@ -1,6 +1,9 @@
 package se.bms.wearep;
 
+import com.google.gson.JsonArray;
+
 import se.bms.wearep.coords.GetCoords;
+import se.bms.wearep.dataout.HtmlPrinter;
 import se.bms.wearep.weather.*;
 public class Main {
 
@@ -13,7 +16,7 @@ public class Main {
 		Double lat = getcoords.getLatitude();
 		System.out.println("Main prints city: "+ city + " lon: " + lon + " lat "+ lat);
 		WeatherLauncher.run(city, lon, lat);
-
+		
 	}
 
 }
