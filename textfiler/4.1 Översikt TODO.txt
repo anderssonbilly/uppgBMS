@@ -1,1 +1,13 @@
-Appen Wearep kan logga in p� Twitter, h�mta och posta tweets. Den kan ocks� h�mta och publicera v�derdata fr�n SMHI f�r en utvald plats endera som html eller i en tweet. Platsens koordinater h�mtas fr�n Google Maps. Vi har s�ledes interagerat med tre olika API:er.
+I appen Wearep kan användaren logga in på Twitter, hämta och posta tweets. Appen kan också, för en av användaren angiven plats, hämta och publicera väderdata från SMHI både som html och i en tweet. Platsens koordinater hämtas från Google Maps. Vi har således interagerat med tre olika API:er.
+
+Appen består av olika moduler:
+Geokodning - Hämtning av koordinater för en plats
+Väder - Hämtning av väderdata och ihoppackning av data till JSON-objekt
+Twitter - Inloggning, hämta och posta tweets
+Dataout - Publicerar väderdata som html
+
+Användarinterfacet ser ut så här: (bild)
+en Twitterflik (inloggning krävs)
+en Weatherflik
+Appen har också en inbyggd webvisare //TODO vad heter det?? som websidan öppnas i när väderprognosen är färdig. 
+
