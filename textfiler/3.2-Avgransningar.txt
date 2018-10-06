@@ -1,2 +1,4 @@
 AVGRÄNSNINGAR TODO
-Felhanteringen, testningen, kan inte välja vilken väderdata som visas
+Då vi hade väldigt begränsad tid kvar på kursen fick vi göra större avgränsningar än vi kanske annars hade valt. Funktionsmässigt kan man exempelvis inte välja vilka väderdata man vill twittra ut, utan variablerna är förvalda. TDD testnings coverage är inte alls så god som man skulle önska. Exceptionshanteringen är inte heller ordentligt implementerad, åtminstone inte i Väder-delen. Valideringen av indata är otillräcklig då vi inte hann implementera den delen ordentligt. 
+
+TODO Håller ni med? Något mer?
