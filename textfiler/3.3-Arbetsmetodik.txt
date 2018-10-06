@@ -1,1 +1,4 @@
-TODO
+3.3	ARBETSMETODIK TODO
+Vi använde ett repository på github.com TODO länk där vi alla hade skrivrättigheter. Vi förde det mesta av diskussionerna via Slack. Trello fick fungera både för KANBAN och 
+Licens TODO MIT?
+Initialt fördelade vi arbetet så att vi arbetade med varsitt API; Billy med Twitter, Sten med Google Maps och Malin med SMHI. Därutöver arbetade vi med…TODO. Varje API fick varsin branch (även om de fick namn efter oss), JavaFX-skalet fick en egen och därutöver hade vi en test-branch för att kunna testa att de olika delarna fungerar tillsammans innan vi släppte dem till master. 
