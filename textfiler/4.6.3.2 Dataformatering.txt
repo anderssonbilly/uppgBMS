@@ -1,0 +1,1 @@
+Datum skall formateras till ееее-MM-DD HH24MM format, t ex 2018-07-12 15:00.

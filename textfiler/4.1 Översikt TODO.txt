@@ -1,5 +1,1 @@
-i wearep (Weather reporter) appen så skriver användaren in vilken stad den vill ha vädret för.
-
-Appen kontaktar Googles geocoding API och får tillbaka koordinaterna för staden, som sen skickas vidare till SMHIs API.
-
-Sen kan användaren välja att skicka ut en formaterad text till Twitters API i form av en "tweet" eller skriva ut informationen i ett HTML-dokument
+Appen Wearep kan logga in på Twitter, hämta och posta tweets. Den kan också hämta och publicera väderdata från SMHI för en utvald plats endera som html eller i en tweet. Platsens koordinater hämtas från Google Maps. Vi har således interagerat med tre olika API:er.
