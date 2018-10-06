@@ -1,12 +1,16 @@
 package se.bms.wearep;
 
+import java.io.File;
+
 import se.bms.wearep.coords.GetCoords;
 import se.bms.wearep.weather.*;
 public class Main {
 
 	public static void main(String[] args) {
+		File outputFile = new File("weatherOutfile.html");
+		outputFile.delete();
 		GetCoords getcoords = new GetCoords();
-		getcoords.run("Piteå");
+		getcoords.run("Göteborg");
 	//	System.out.println(getcoords);
 		String city = getcoords.getCity();
 		Double lon = getcoords.getLongitude();
