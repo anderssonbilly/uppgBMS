@@ -1,0 +1,1 @@
+Googles geocoding API tar emot en några argument i URLen, som t.ex. vilken stad man är intresserad av, vad man har för API-nyckel, vilket format man vill ha datan i (JSON / XML) och sensor (true/false)

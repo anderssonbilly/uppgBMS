@@ -1,1 +1,2 @@
-TODO
+2.1	SAMMANFATTNING TODO
+Wearep är en app för att rapportera väderdata för en utvald plats på twitter eller i html.TODO Vi valde en MIT-licens därför att detta är en enkel applikation där källkoden kommer vara åtkomlig för alla via github. Det är inte heller något nytt, komplicerat eller innovativt så det finns anledning till större begränsningar av den anledningen.

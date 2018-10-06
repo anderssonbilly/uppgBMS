@@ -1,5 +1,6 @@
+2.4	REFERENSER TODO
 Google Maps API dokumentation: https://developers.google.com/maps/documentation/geocoding/intro
-Länk till Trello tavla: https://trello.com/b/dN3ze08J/grupparbete-datorkommunikation-och-n%C3%A4tverk
+LÃ¤nk till Trello tavla: https://trello.com/b/dN3ze08J/grupparbete-datorkommunikation-och-n%C3%A4tverk
 
 Twitter API dokumentation: https://developer.twitter.com/en/docs.html
 

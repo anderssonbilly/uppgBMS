@@ -1,1 +1,2 @@
-TODO
+AVGRÄNSNINGAR TODO
+Felhanteringen, testningen, kan inte välja vilken väderdata som visas
