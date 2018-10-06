@@ -1,0 +1,3 @@
+Vissa metoder är public fast man kanske kunde gjort dom private.
+
+Vi ska även bygga till kontroller av inmatad data, utifall nån skriver in "4" som stad t.ex.

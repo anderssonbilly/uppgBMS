@@ -1,0 +1,3 @@
+Anslutningarna görs via HTTPS, men det finns alltid risk att nån tittar på din skärm när du skriver och kan på så sätt snappa upp uppgifterna till ditt Twitter-konto.
+
+I och med att vi använder HTTPS anslutningar så bör det inte gå så bra att "sniffa" sig till uppgifterna.
