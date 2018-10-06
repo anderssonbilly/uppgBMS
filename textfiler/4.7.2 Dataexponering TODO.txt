@@ -1,3 +1,5 @@
-Anslutningarna görs via HTTPS, men det finns alltid risk att nån tittar på din skärm när du skriver och kan på så sätt snappa upp uppgifterna till ditt Twitter-konto.
+Anslutningarna gÃ¶rs via HTTPS, men det finns alltid risk att nÃ¥n tittar pÃ¥ din skÃ¤rm nÃ¤r du skriver och kan pÃ¥ sÃ¥ sÃ¤tt snappa upp uppgifterna till ditt Twitter-konto.
 
-I och med att vi använder HTTPS anslutningar så bör det inte gå så bra att "sniffa" sig till uppgifterna.
+I och med att vi anvÃ¤nder HTTPS anslutningar sÃ¥ bÃ¶r det inte gÃ¥ sÃ¥ bra att "sniffa" sig till uppgifterna.
+
+TODO Skriva nÃ¥got om nyckelhanteringen? Det Ã¤r ju inte ur anvÃ¤ndarsynpunkt, men utvecklarsynpunkt
