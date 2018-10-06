@@ -1,0 +1,11 @@
+SMHI Open Data Meteorological Forecasts, PMP, omfattar prognosdata för de kommande 10 dagarna och baseras på ett antal prognosmodeller och 
+manuella justeringar. SMHIs API är ett öppet API, tillgängligt för applikationer som vill använda tjänsten för att hämta prognosdata. 
+Data levereras som JSON och alla tidpunkter är angivna i UTC (Coordinated Universal Time).
+
+Entry point är: https://opendata-download-metfcst.smhi.se och licensvillkor finns att läsa här: http://www.smhi.se/klimatdata/oppna-data/information-om-oppna-data/villkor-for-anvandning-1.30622
+
+En GeoJSON-punkt i JSON-resultatet visar longitud och latitud för den grid punkt som är närmast den efterfrågade. Prognosens starttid 
+återfinns under referenceTime och den tid meterologen godkände prognosen anges i approvedTime. Blocket TimeSeries innehåller själva 
+prognosdata, med validTime, parametrar och deras mätvärden och enheter. ValidTime anger när prognosen gäller. Ögonblickstider gäller 
+för validTime, utom när det gäller nederbörsparametrarna, då intervallet börjar vid tidssteget innan. I början av prognosen är intervallen 
+korta, bara 1 timme, men ökar senare alltmer, upp till 12 timmar.
