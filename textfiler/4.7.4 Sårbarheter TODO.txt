@@ -1,3 +1,11 @@
-Vissa metoder �r public fast man kanske kunde gjort dom private.
+Vissa metoder är public fast man kanske kunde gjort dom private.
 
-Vi ska �ven bygga till kontroller av inmatad data, utifall n�n skriver in "4" som stad t.ex.
+Vi ska även bygga till kontroller av inmatad data, utifall nån skriver in "4" som stad t.ex.
+
+Vem som helst kan använda väderdelen av appen för att hämta väderdata. där krävs ingen autentisering, lika lite som det krävs för att titta på väderprognosen på SMHIs egna sidor. För att använda twitter däremot krävs inloggning på ett twitterkonto.
+
+Kan det ses som en sårbarhet att vi sparar html-filen lokalt? Den som har html-kunskap kan ändra i den, men den är å andra sidan inte publikt publicerad.
+
+Borde vi fånga upp inkommande data (inmatning av stad?) och escapa den för att skydda oss serverside?
+
+Finns det sårbarheter i Maven som skulle kunnat påverka vår app?
