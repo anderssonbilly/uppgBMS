@@ -1,2 +1,0 @@
-4.1	ÖVERSIKT TODO
-Appen Wearep kan logga in på Twitter, hämta och posta tweets. Den kan också hämta och publicera väderdata från SMHI för en utvald plats endera som html eller i en tweet. Platsens koordinater hämtas från Google Maps. Vi har således interagerat med tre olika API:er.
