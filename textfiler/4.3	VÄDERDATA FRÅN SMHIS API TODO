@@ -1,3 +1,0 @@
-4.3	VÄDERDATA FRÅN SMHIS API TODO
-Väderdata hämtas från SMHIs API (TODO länk) i JSON-format. JSON-objektet bryts ner i Weather-klassen så att enskilda variabler kan avläsas. Klassen levererar en JSON-array som endera utnyttjas av klassen WeatherSelector där förhandsdefinierade variabler för den närmaste timmens prognos plockas ut och packas ihop i ett nytt JSON-objekt, eller används direkt i klassen HtmlPrinter.
- 
