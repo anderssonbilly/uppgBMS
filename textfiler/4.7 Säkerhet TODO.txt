@@ -1,0 +1,42 @@
+Begrepp vi kanske bör ta upp här:
+Escapande
+Validate data - klokt att använda reguljära uttryck och pattern matching
+Kontrollera alltid att databasen går att nå, filen man ska skriva till finns etc.
+
+SLS/TLS
+
+Autentication
+  Basic
+      - base64
+  Form Based
+      - figurer, bilder där något ska identifieras
+  Oauth2
+      - Avancerat. Kan vara klokt val. Stora aktörer större möjlighet att säkra inloggningen. Samtidigt mer lockande för hackers.
+
+Cross Site Scripting
+  - en cookie som hänvisar till en sida du är inloggad på stjäls och läggs på en annan webplats och min inloggning utnyttjas
+  - skydda oss genom att 
+              -escape all data.
+              - fånga upp t ex html-kod i vår applikation
+
+Kända sårbarheter i olika ramverk
+  - hur är det med Maven?
+  Sårbarhet Github?
+  -remote exploit
+  -local exploit
+  
+  SQL Injections - borde inte vara så aktuellt i vårt fall, vi använder väl ingen databas? Eller hur är det med inloggningen på twitter?
+  - Skydda sig med Prepared Statements.
+  
+  Sessionscockies
+  
+  Wifi - då är kommunikationen sällan krypterad. Risk för sniffing.
+   T ex en webtjänst som inte använder TLS, då kan man fånga upp din sessions-id, eller få fram ditt användarnamn och lösenord i klartext.
+   
+   Det som finns på min skärm - vad har vi exponerat i webgränssnittet? Känsliga uppgifter bör undvikas
+   
+   Data exposure innebär att du ska tänka på vad som skickas fram och tillbaka över nätverk, och vad som är viktigt för användaren att se. Användaren kan istället aktivt få välja att visa personnummer, företagsnamn etc.
+   
+   WAF - eller next generation firewall - en brandvägg står mellan internet och din applikation. Tittar på vanliga sårbarheter/sätt att ta sig in och har en lista och uppdaterar den. Den går upp i application layer och tittar, vad kommer egentligen, aha, den försöker göra en cross site scripting, det gilllar vi inte, då blockerar brandväggen det, 
+
+
