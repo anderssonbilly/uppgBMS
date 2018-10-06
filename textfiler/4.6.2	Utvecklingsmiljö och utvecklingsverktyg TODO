@@ -1,0 +1,6 @@
+
+Följande miljöer och verktyg användes för realisering, byggande och tester:
+Produkt	Ansvar
+Eclipse	Programmeringsverktyg (IDE)
+JUnit	Enhetstestning av kod
+xxx	Byggstöd och rapporteringsverktyg
