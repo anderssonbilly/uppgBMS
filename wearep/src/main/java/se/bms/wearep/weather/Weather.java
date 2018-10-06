@@ -174,21 +174,21 @@ public class Weather {
 	}
 	
 	// Method to set coordinates in URL
-	public String setCoordinatesInUrl(Double lon, Double lat) {
-			System.out.println("lat: "+ lat + " long " + lon);
+	private String setCoordinatesInUrl(Double lon, Double lat) {
+			//System.out.println("lat: "+ lat + " long " + lon);
 			String url = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/" + lon + "/lat/" + lat + "/data.json";
-			System.out.println("URL for position " + lon + ", " + lat + " is: " + url);
+		//	System.out.println("URL for position " + lon + ", " + lat + " is: " + url);
 		return url;
 	}
 	
 	//Get weather data
-	public String getSMHIIndata(Double lon, Double lat) {
+	protected String getSMHIIndata(Double lon, Double lat) {
 		String smhiIndata = ""; // store the JSON data streamed
 		
 		try {
 			// This is an example url working: "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.6/lat/58.2/data.json"
 			String forUrl = setCoordinatesInUrl(lon, lat);
-			System.out.println("This is string forURL " + forUrl);
+		//	System.out.println("This is string forURL " + forUrl);
 			URL url = new URL(forUrl);
 			System.out.println("URL: " +url);
 			HttpURLConnection connection = (HttpURLConnection)url.openConnection(); // parse URL to open connection
@@ -225,7 +225,7 @@ public class Weather {
 	}
 	
 	//Create first JSONObject with all weather data 
-	public JsonObject createJSONObjectFromSMHIdata(String indata) {
+	protected JsonObject createJSONObjectFromSMHIdata(String indata) {
 		JsonObject jsonTree = null;
 		JsonParser parser = new JsonParser();
 		try {
@@ -240,14 +240,14 @@ public class Weather {
 	}
 		
 	// Get forecast start time
-	public JsonElement returnForecastStartTime(JsonObject jsonTree) {
+	private JsonElement returnForecastStartTime(JsonObject jsonTree) {
 		JsonElement forecastStartTime = jsonTree.get("referenceTime");
 		System.out.println("Forecast start time: "+ forecastStartTime);
 	return forecastStartTime;
 	}
 	
 	// Get forecast approved time
-	public JsonElement returnForecastApprovedTime(JsonObject jsonTree) {
+	private JsonElement returnForecastApprovedTime(JsonObject jsonTree) {
 		JsonElement approvedTime = jsonTree.get("approvedTime");
 		System.out.println("Forecast approved: "+ approvedTime);
 	return approvedTime;
@@ -255,7 +255,7 @@ public class Weather {
 	
 	
 	// Get formatted forecast start time
-		public String getFormattedForecastStartTime(JsonObject jsonTree) {
+		private String getFormattedForecastStartTime(JsonObject jsonTree) {
 			String forecastStartTime = getStringFromElementInJsonObject("referenceTime", jsonTree);
 	        forecastStartTime = formatStringDate(forecastStartTime) + " UTC";
 			System.out.println("Forecast start time: "+ forecastStartTime);
@@ -263,7 +263,7 @@ public class Weather {
 		}
 		
 	// Get formatted approved time
-			public String getFormattedApprovedTime(JsonObject jsonTree) {
+			private String getFormattedApprovedTime(JsonObject jsonTree) {
 				String approvedTime = getStringFromElementInJsonObject("approvedTime", jsonTree);
 		        approvedTime = formatStringDate(approvedTime) + " UTC";
 				System.out.println("Approved time: "+ approvedTime);
@@ -272,7 +272,7 @@ public class Weather {
 
 	
 	// Create JSonArray with weather data JSONObjects for each measurement		
-		public JsonArray createJSONArrayOfMeasurements(JsonObject jsonTree) {
+		protected JsonArray createJSONArrayOfMeasurements(JsonObject jsonTree) {
 			String forecastStartTime = getFormattedForecastStartTime(jsonTree);
 			String approvedTime = getFormattedApprovedTime(jsonTree);
 	        String jsonArrayName = "timeSeries";
@@ -296,7 +296,7 @@ public class Weather {
 						if(name == "Forecast") 
 	                        value = updateValueWSymb2(value); 
 						
-                        System.out.println("Forecast for: " + validTime + ". Approved on " + approvedTime + " and valid from (forecast start) " + forecastStartTime + " " + name + ": " + value + " " + unit);
+                 //       System.out.println("Forecast for: " + validTime + ". Approved on " + approvedTime + " and valid from (forecast start) " + forecastStartTime + " " + name + ": " + value + " " + unit);
                         JsonObject jsonWeather = createJsonWeatherObject(validTime, name, value, unit, approvedTime,forecastStartTime);
                         weatherForecast.add(jsonWeather);
 	                    }
@@ -307,7 +307,7 @@ public class Weather {
 	    }
 
 	// get JsonArray from JsonArray  //Not used?
-		public JsonArray getJsonArrayFromJsonArray(JsonArray jsonArray, String newJsonArrayName, int i) {	
+		private JsonArray getJsonArrayFromJsonArray(JsonArray jsonArray, String newJsonArrayName, int i) {	
 			JsonObject jsonObject = getJsonObjectFromJsonArray(jsonArray, i);
 			JsonArray newJsonArray = (JsonArray) jsonObject.get(newJsonArrayName);
 	    return newJsonArray;
@@ -316,25 +316,25 @@ public class Weather {
 	  
 	
 	// get String from Element in JSON object	
-	    public String getStringFromElementInJsonObject(String variableName, JsonObject jsonObject) {
+	    private String getStringFromElementInJsonObject(String variableName, JsonObject jsonObject) {
 	    String variable = jsonObject.get(variableName).getAsString();
 	    return variable;
 	    }
 
 	// Get JSonArray from JsonObject
-	    public JsonArray getJsonArrayFromJsonObject(String jsonArrayName, JsonObject jsonObject) {	
+	    private JsonArray getJsonArrayFromJsonObject(String jsonArrayName, JsonObject jsonObject) {	
 	        JsonArray jsonArray = (JsonArray) jsonObject.get(jsonArrayName);
 	    return jsonArray;
 	    }
 
 	// Get JSonObject from JsonArray
-	    public JsonObject getJsonObjectFromJsonArray(JsonArray jsonArray, int i) {	
+	    private JsonObject getJsonObjectFromJsonArray(JsonArray jsonArray, int i) {	
 	        JsonObject jsonObject = (JsonObject) jsonArray.get(i);
 	    return jsonObject;
 	    }
 
 	//get String from Json Array
-	    public String getStringFromJsonArray(JsonArray jsonArray, int i, String variableName) {
+	    private String getStringFromJsonArray(JsonArray jsonArray, int i, String variableName) {
 	        JsonObject jsonObject = getJsonObjectFromJsonArray(jsonArray, i);
 	        String variable = getStringFromElementInJsonObject(variableName, jsonObject);
 	        return variable;
@@ -343,7 +343,7 @@ public class Weather {
 
 	
 	//Format date string
-	public String formatStringDate(String dateString) {
+	private String formatStringDate(String dateString) {
 		String[] s0 = dateString.split("T");
 		dateString = s0[0] + " " + s0[1].substring(0,s0[1].length()-4);
 		return dateString;
@@ -352,11 +352,11 @@ public class Weather {
 	
 
 	//Method to create JSON object not string
-		public JsonObject createJsonWeatherObject(String validTime, String name, String value, String unit, String approvedTime, String forecastStartTime) {
+		private JsonObject createJsonWeatherObject(String validTime, String name, String value, String unit, String approvedTime, String forecastStartTime) {
 			Weather weather = new Weather(name, value, unit, forecastStartTime, approvedTime, validTime);
 			Gson gson = new Gson();
 			String json = gson.toJson(weather);
-			System.out.println("This is json from weather object: " + json); //for reference only
+			//System.out.println("This is json from weather object: " + json); //for reference only
 			JsonObject jsonObject = null;
 			JsonParser parser = new JsonParser();
 			try {
@@ -371,7 +371,7 @@ public class Weather {
 		}
 		
 		//Method to create JSON string
-		public String createJsonStringFromWeather(Weather weather) {
+		protected String createJsonStringFromWeather(Weather weather) {
 			Gson gson = new Gson();
 			String json = gson.toJson(weather);
 		//	System.out.println("This is json from weather object: " + json); //for reference only
@@ -379,7 +379,7 @@ public class Weather {
 		}
 		
 		//Method to create JSON object from JSON string
-		public JsonObject createJsonObjectFromJsonString(String json) {
+		protected JsonObject createJsonObjectFromJsonString(String json) {
 			JsonObject jsonObject = null;
 			JsonParser parser = new JsonParser();
 			try {

@@ -1,20 +1,17 @@
 package se.bms.wearep;
 
-import com.google.gson.JsonArray;
-
 import se.bms.wearep.coords.GetCoords;
-import se.bms.wearep.dataout.HtmlPrinter;
 import se.bms.wearep.weather.*;
 public class Main {
 
 	public static void main(String[] args) {
 		GetCoords getcoords = new GetCoords();
 		getcoords.run("Piteå");
-		System.out.println(getcoords);
+	//	System.out.println(getcoords);
 		String city = getcoords.getCity();
 		Double lon = getcoords.getLongitude();
 		Double lat = getcoords.getLatitude();
-		System.out.println("Main prints city: "+ city + " lon: " + lon + " lat "+ lat);
+	//	System.out.println("Main prints city: "+ city + " lon: " + lon + " lat "+ lat);
 		WeatherLauncher.run(city, lon, lat);
 		
 	}

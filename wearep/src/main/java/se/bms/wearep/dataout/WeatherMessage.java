@@ -12,7 +12,7 @@ public class WeatherMessage {
 	}
 	
 	// create weather message to publish as html
-		public String createMessageFromJsonArray(JsonArray weatherForecast) {
+		protected String createMessageFromJsonArray(JsonArray weatherForecast) {
 			HtmlPrinter htmlPrinter = new HtmlPrinter();
 			JsonArray jsonArray = weatherForecast;
 			String validTime = "";
@@ -44,7 +44,7 @@ public class WeatherMessage {
 		}
 		
 		// create html page first part
-		public String createMessageHtmlPageSetup(String pageTitle) { 
+		protected String createMessageHtmlPageSetup(String pageTitle) { 
 			String message = "<html>\r\n" + 
 					"	\r\n" + 
 					"	<head>\r\n" + 
@@ -59,7 +59,7 @@ public class WeatherMessage {
 		}
 		
 		// create html page ending
-		public String createMessageHtmlPageEnding() {
+		protected String createMessageHtmlPageEnding() {
 			String message = "\r\n"+ "\r\n" + "	</body>\r\n" + 
 					"\r\n" + 
 					"</html>";

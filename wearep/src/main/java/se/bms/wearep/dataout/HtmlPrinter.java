@@ -4,11 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 public class HtmlPrinter {
 	
@@ -21,22 +17,13 @@ public class HtmlPrinter {
 	
 
 	// Method to write to file
-	public void printToFile(String message) {
+	protected void printToFile(String message) {
 		FileOutputStream weatherOutfile = null;
 		File outputFile = new File("weatherOutfile.html");
 		try {
 			outputFile.createNewFile();
 
-			//TODO change to appropriate path
 			weatherOutfile = new FileOutputStream(outputFile, true);
-		//	weatherOutfile = new FileOutputStream("/src/weatherOutfile.html", true);
-			//TODO need to update path
-			/*
-			Path currentRelativePath = Paths.get("");
-			String s = currentRelativePath.toAbsolutePath().toString();
-			System.out.println(s);
-			weatherOutfile = new FileOutputStream(s, true);
-		*/
 			
 			weatherOutfile.write(message.getBytes());
 			weatherOutfile.close();
