@@ -1,2 +1,0 @@
-
-Klassen HtmlPrinter omvandlar JSON-objektet från WeatherSelector till en sträng som kan hämtas upp och twittras ut. Klassen bryter även ner JSON-arrayen från Weather till en sträng och skriver den till html.
