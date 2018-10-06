@@ -31,13 +31,13 @@ public class WeatherSelector {
 	 
 	//get temperature new
 	 //TODO check that appropriate record is selected
-	 public JsonObject createTempObject(JsonArray weatherForecast) { //TODO change to array?
+	 public JsonObject createTempObject(JsonArray weatherForecast) { 
 		 JsonObject jsonObject = null;
 		 for(JsonElement element : weatherForecast) {
 			 String validTime= null;
 			 String forecast=null;
 			 String temperature = null;
-			 String unit = null;
+			// String unit = null;
 
 			 if(element.getAsJsonObject().get("name").getAsString().equals("Air temperature")) {
 			//  System.out.println("This is Air temperature " + element);
@@ -61,13 +61,13 @@ public class WeatherSelector {
 	 
 	 //get forecast
 	//TODO check that appropriate record is selected
-	 public JsonObject createForecastObject(JsonArray weatherForecast) { //TODO change to array?
+	 public JsonObject createForecastObject(JsonArray weatherForecast) { 
 		 JsonObject jsonObject = null;
 		 for(JsonElement element : weatherForecast) {
 			 String  validTime= null;
 			 String forecast=null;
 			 String temperature = null;
-			 String unit = null;
+			// String unit = null;
 			
 			 if(element.getAsJsonObject().get("name").getAsString().equals("Forecast")) {
 				 

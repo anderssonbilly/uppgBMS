@@ -24,8 +24,8 @@ public class HtmlPrinter {
 		FileOutputStream weatherOutfile = null;
 		try {
 			//TODO change to appropriate path
-			weatherOutfile = new FileOutputStream("C:/Users/gospe/Documents/Ska_till_NAS/SystemintegratÃ¶r/Datakommunikation_och_nÃ¤tverk/weatherOutfile.html", true);
-			
+			weatherOutfile = new FileOutputStream("C:/Users/gospe/Documents/Ska_till_NAS/Systemintegratör/Datakommunikation_och_nätverk/weatherOutfile.html", true);
+		//	weatherOutfile = new FileOutputStream("/src/weatherOutfile.html", true);
 			//TODO need to update path
 			/*
 			Path currentRelativePath = Paths.get("");

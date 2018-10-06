@@ -20,6 +20,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
+
 public class Weather {
 	private String name;
 	private String value;
@@ -29,8 +30,6 @@ public class Weather {
 	private String validTime;
 	private String temperature;
 	private String forecast;
-	
-	
 	
 	private JsonArray weatherForecast = new JsonArray();
 			
@@ -70,8 +69,11 @@ public class Weather {
 		this.setForecast(forecast);
 	}
 
+	
+	
 	public Weather() {	
 	}
+	
 	
 	/**
 	 * @return the name
@@ -170,15 +172,25 @@ public class Weather {
 	public void setWeatherForecast(JsonArray weatherForecast) {
 		this.weatherForecast = weatherForecast;
 	}
-
+	
+	// Method to set coordinates in URL
+	public String setCoordinatesInUrl(Double lon, Double lat) {
+			System.out.println("lat: "+ lat + " long " + lon);
+			String url = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/" + lon + "/lat/" + lat + "/data.json";
+			System.out.println("URL for position " + lon + ", " + lat + " is: " + url);
+		return url;
+	}
+	
 	//Get weather data
-	public String getSMHIIndata() {
+	public String getSMHIIndata(Double lon, Double lat) {
 		String smhiIndata = ""; // store the JSON data streamed
 		
 		try {
 			// This is an example url working: "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/11.6/lat/58.2/data.json"
-			String forUrl = setCoordinatesInUrl();
+			String forUrl = setCoordinatesInUrl(lon, lat);
+			System.out.println("This is string forURL " + forUrl);
 			URL url = new URL(forUrl);
+			System.out.println("URL: " +url);
 			HttpURLConnection connection = (HttpURLConnection)url.openConnection(); // parse URL to open connection
 			connection.setRequestMethod("GET"); // set method to request data
 			connection.connect(); // connect
@@ -214,7 +226,6 @@ public class Weather {
 	
 	//Create first JSONObject with all weather data 
 	public JsonObject createJSONObjectFromSMHIdata(String indata) {
-		//indata = getSMHIIndata();
 		JsonObject jsonTree = null;
 		JsonParser parser = new JsonParser();
 		try {
@@ -304,7 +315,7 @@ public class Weather {
 
 	  
 	
-
+	// get String from Element in JSON object	
 	    public String getStringFromElementInJsonObject(String variableName, JsonObject jsonObject) {
 	    String variable = jsonObject.get(variableName).getAsString();
 	    return variable;
@@ -383,17 +394,6 @@ public class Weather {
 		}
 		
 
-	
-	//New method to set coordinates in URL
-		public String setCoordinatesInUrl() {
-			//Double lon = GetCoords.getLongitude; //TODO
-			//Double lat = GetCoords.getLatitude; // TODO
-			Double lon = 10.213; //TODO Replace with call to get longitude above
-			Double lat = 68.425; //TODO Replace with call to get latitude above
-			String url = "https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/" + lon + "/lat/" + lat + "/data.json";
-			System.out.println("URL for position " + lon + ", " + lat + " is: " + url);
-			return url;
-		}
 	
 	// Method to switch name
 	private String updateName(String name) {

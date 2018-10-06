@@ -17,8 +17,6 @@ public class WeatherMessage {
 			JsonArray jsonArray = weatherForecast;
 			String validTime = "";
 			String message="";
-		//	String message = "<h1>Forecast for Uddevalla</h1>";
-		//	printToFile(message);
 			for(int i=0;i<jsonArray.size();i++) {
 				JsonObject jsonObject = (JsonObject)jsonArray.get(i);
 				validTime = jsonObject.get("validTime").getAsString();
@@ -69,6 +67,7 @@ public class WeatherMessage {
 		}		
 		
 		// Currently not used
+	/*
 		//General method to create message
 		// messageTemplate should be formatted like "text" + v0 + "text" + v2 + v1 + "text"
 		public String createMessageGeneral(JsonObject jsonobject, String[] variables, String messageTemplate) {
@@ -81,8 +80,10 @@ public class WeatherMessage {
 				
 			return message;
 		}
+	*/
 		
 		// Currently not used
+	/*
 		//create messageTemplate
 		public String createMessageTemplate(String origin, boolean header) {
 			String messageTemplate;
@@ -99,6 +100,7 @@ public class WeatherMessage {
 			return messageTemplate;
 		}
 		
+		*/
 	
 
 }

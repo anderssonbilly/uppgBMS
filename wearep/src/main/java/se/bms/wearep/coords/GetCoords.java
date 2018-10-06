@@ -13,12 +13,13 @@ import org.json.simple.parser.ParseException;
 
 public class GetCoords {
 	String city = "";
-	final String firstHalfURL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
-	final String secondHalfURL = "&sensor=false&key=AIzaSyDb5BNaLMM4s_e_-EJN7_Wj8EiUM6_FC08";
+	String firstHalfURL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+	String secondHalfURL = "&sensor=false&key=AIzaSyDb5BNaLMM4s_e_-EJN7_Wj8EiUM6_FC08";
 	String tempURL = "";
 	String rawData = "";	// temporary variable for storing all the data from the API to be parsed
 	Double longitude = null;
 	Double latitude = null;
+	
 	
 	public void run(String tmpCity) {
 		city = tmpCity;
@@ -27,6 +28,7 @@ public class GetCoords {
 		parseJSON();
 		
 	}
+	
 	
 	private void setURL() {
 		
