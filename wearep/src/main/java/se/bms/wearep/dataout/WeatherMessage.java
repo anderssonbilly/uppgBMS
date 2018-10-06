@@ -53,14 +53,14 @@ public class WeatherMessage {
 					"\r\n" + 
 					"	</head>\r\n" + 
 					"\r\n" + 
-					"	<body>";
+					"	<body>\r\n" + "\r\n";
 			return message;
 			
 		}
 		
 		// create html page ending
 		public String createMessageHtmlPageEnding() {
-			String message = "</body>\r\n" + 
+			String message = "\r\n"+ "\r\n" + "	</body>\r\n" + 
 					"\r\n" + 
 					"</html>";
 			return message;
