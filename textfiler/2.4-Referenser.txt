@@ -5,5 +5,6 @@ Länk till Trello tavla: https://trello.com/b/dN3ze08J/grupparbete-datorkommunik
 Twitter API dokumentation: https://developer.twitter.com/en/docs.html
 
 SMHI api dokumentation: https://opendata.smhi.se/apidocs/metfcst/index.html
+Vi använde Get Forecast: https://opendata.smhi.se/apidocs/metfcst/get-forecast.html
 
 Git repo: https://github.com/anderssonbilly/uppgBMS
