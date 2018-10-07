@@ -17,8 +17,8 @@ public class GetCoords {
 	String secondHalfURL = "&sensor=false&key=AIzaSyDb5BNaLMM4s_e_-EJN7_Wj8EiUM6_FC08";
 	String tempURL = "";
 	String rawData = "";	// temporary variable for storing all the data from the API to be parsed
-	Double longitude = null;
-	Double latitude = null;
+	Double longitude = 0.000;
+	Double latitude = 0.000;
 	
 	
 	public void run(String tmpCity) {
