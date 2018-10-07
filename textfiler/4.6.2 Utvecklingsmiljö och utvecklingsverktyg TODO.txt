@@ -3,4 +3,5 @@ Följande miljöer och verktyg användes för realisering, byggande och tester:
 Produkt	Ansvar
 Eclipse	Programmeringsverktyg (IDE)
 JUnit	Enhetstestning av kod
+JavaFX Scene Builder 2.0	Byggande av fxml filer
 xxx Byggstöd och rapporteringsverktyg
