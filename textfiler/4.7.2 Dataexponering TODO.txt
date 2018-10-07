@@ -1,6 +1,2 @@
-﻿Anslutningarna görs via HTTPS, men det finns alltid risk att nån tittar på din skärm när du skriver och kan på så sätt snappa upp uppgifterna till ditt Twitter-konto.
-
-I och med att vi använder HTTPS anslutningar så bör det inte gå så bra att "sniffa" sig till uppgifterna.
-
-API nycklar bör man inte lägga ut publikt, så den till Twitter lämnas in separat, och kan inte hittas på GitHub.
-Nyckeln till Google Maps var en "try for free" variant där man fick en mängd requests gratis, och om dom tar slut så måste man logga in och godkänna att dom börjar dra pengar från mitt kort innan nyckeln funkar igen. Den här borde kanske skyddats också, men det kändes som att det inte behövdes i det här fallet.
+Anslutningarna görs via HTTPS, men det finns alltid risk att någon tittar på din skärm när du skriver och på så sätt kan snappa upp uppgifterna till ditt Twitter-konto. I och med att vi använder HTTPS-anslutningar så bör det inte gå så bra att "sniffa" sig till uppgifterna. 
+API-nycklar bör man inte lägga ut publikt, så den till Twitter lämnas in separat, och kan inte hittas på GitHub.Nyckeln till Google Maps var en "try for free" variant där man fick en mängd requests gratis, och om dom tar slut så måste man logga in och godkänna att dom börjar dra pengar från kortet innan nyckeln funkar igen. Den här borde kanske skyddats också, men det kändes som om det inte behövdes i det här fallet.
