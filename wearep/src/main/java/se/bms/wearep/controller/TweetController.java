@@ -16,13 +16,13 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import se.bms.wearep.observer.AuthorizationObserver;
+import se.bms.wearep.observer.TwitterObserver;
 import se.bms.wearep.twitter4j.Twitter4J;
 import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.User;
 
-public class TweetController extends AuthorizationObserver {
+public class TweetController extends TwitterObserver {
 
 	@FXML
 	protected TextArea tweet;
@@ -120,6 +120,11 @@ public class TweetController extends AuthorizationObserver {
 		vBox.getChildren().addAll(nameBox, messageBox, dateBox, separator);
 
 		tweetsBox.getChildren().add(vBox);
+	}
+	
+	@Override
+	public void updateTwitter() {
+		loopTweets();
 	}
 	
 	@Override

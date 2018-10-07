@@ -6,9 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import se.bms.wearep.observer.AuthorizationObserver;
+import se.bms.wearep.observer.TwitterObserver;
 
-public class WeatherControlController extends AuthorizationObserver {
+public class WeatherControlController extends TwitterObserver {
 
 	@FXML
 	protected Button tweetWeatherBtn;
@@ -31,9 +31,11 @@ public class WeatherControlController extends AuthorizationObserver {
 				((Button) event.getSource()).disableProperty().set(true);
 				Label status = ((Label) ((Node) event.getSource()).getParent().getScene().lookup("#status"));
 				status.setText("tweeting...");
-				if (TwitterController.getTwitter().tweet(weather))
+				if (TwitterController.getTwitter().tweet(weather)) {
 					status.setText("Tweet successful");
-				 else
+					TwitterController.getTwitter().updateTweetList();
+					tweetWeatherBtn.disableProperty().set(true);
+				} else
 					status.setText("Something went wrong, could not send tweet");
 			}
 		} else

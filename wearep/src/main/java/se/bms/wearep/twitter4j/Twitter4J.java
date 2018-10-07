@@ -3,7 +3,8 @@ package se.bms.wearep.twitter4j;
 import java.util.ArrayList;
 import java.util.List;
 
-import se.bms.wearep.observer.AuthorizationObserver;
+import se.bms.wearep.controller.TweetController;
+import se.bms.wearep.observer.TwitterObserver;
 import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.Twitter;
@@ -22,7 +23,7 @@ public class Twitter4J {
 
 	private TwitterFactory tf;
 
-	private final List<AuthorizationObserver> observers = new ArrayList<>();
+	private final List<TwitterObserver> observers = new ArrayList<>();
 
 	public Twitter4J() {
 		this.tf = new TwitterFactory();
@@ -94,14 +95,20 @@ public class Twitter4J {
 		}
 	}
 
-	public void addObserver(AuthorizationObserver o) {
+	public void addObserver(TwitterObserver o) {
 		System.out.println("Adding: " + o + " to observerlist");
 		observers.add(o);
 		isAuthorized();
 	}
 
+	public void updateTweetList() {
+		for (TwitterObserver observer : observers) {
+			observer.updateTwitter();
+		}
+	}
+	
 	private void updateObservers(boolean isAuthorized) {
-		for (AuthorizationObserver observer : observers) {
+		for (TwitterObserver observer : observers) {
 			observer.update(isAuthorized);
 		}
 	}
