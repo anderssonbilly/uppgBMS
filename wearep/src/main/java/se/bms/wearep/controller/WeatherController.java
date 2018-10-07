@@ -24,10 +24,10 @@ public class WeatherController{
 	public void getWeather(ActionEvent event) throws IOException {
 		System.out.println("City: " + city.getText());
 		getWeatherData(city.getText(), getLongitude(city.getText()), getLatitude(city.getText()));
-		// when data is saved to disk
-		// show data in html file in the webview
-		//changeToBrowser("http://www.smhi.se/");
-		changeToBrowser("weatherOutfile.html");
+//		 when data is saved to disk
+//		 show data in html file in the webview
+		ClassLoader classLoader = getClass().getClassLoader();
+		changeToBrowser(classLoader.getResource("weatherOutfile.html").toExternalForm());
 	}
 
 
@@ -58,10 +58,6 @@ public class WeatherController{
 		File outputFile = new File("weatherOutfile.html");
 		outputFile.delete();
 		WeatherLauncher.run(city, lon, lat);
-	}
-
-	private void saveData() {
-		// save the data to disk
 	}
 
 	private void changeToBrowser(String url) throws IOException {
