@@ -4,9 +4,3 @@ Klassen WeatherMessages producerar följande textsträngar:
 •	Vädervariabelinformation för utskrift till html
 •	Html-sidans inledning
 •	Html-sidans avslutning
-
-Klassen GetCoords producerar följande text och Double(s):
-
-Longitude koordinat för den valda staden
-Latitude koordinat för den valda staden
-Utskrift av vilken stad som är vald
