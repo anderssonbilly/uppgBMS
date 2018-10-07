@@ -9,3 +9,6 @@ Vem som helst kan använda väderdelen av appen för att hämta väderdata. där
 //TODO Borde vi fånga upp inkommande data (inmatning av stad?) och escapa den för att skydda oss serverside?
 
 //TODO Finns det sårbarheter i Maven som skulle kunnat påverka vår app?
+
+//TODO Att källkoden är öppen är kan vara en sårbarhet, sedan det med api nycklar
+//TODO ATt man bör vara noggran med vad man skickar upp till github då alla kan se
