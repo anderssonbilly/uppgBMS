@@ -1,0 +1,6 @@
+4.5.2	Meddelanden //TODO
+Klassen WeatherMessages producerar följande textsträngar:
+•	Vädermeddelande för Twitter
+•	Vädervariabelinformation för utskrift till html
+•	Html-sidans inledning
+•	Html-sidans avslutning
