@@ -1,4 +1,4 @@
-I appen Wearep kan användaren logga in på Twitter, hämta och posta tweets. Appen kan också, för en av användaren angiven plats, hämta och publicera väderdata från SMHI både som html och i en tweet. Platsens koordinater hämtas från Google Maps. Vi har således interagerat med tre olika API:er.
+﻿I appen Wearep kan användaren logga in på Twitter, hämta och posta tweets. Appen kan också, för en av användaren angiven plats, hämta och publicera väderdata från SMHI både som html och i en tweet. Platsens koordinater hämtas från Google Maps. Vi har således interagerat med tre olika API:er.
 
 Appen är uppbyggd av olika moduler:
 Geokodning - Hämtning av koordinater för en plats
@@ -9,7 +9,9 @@ Dataout - Publicerar väderdata som html, producerar en textsträng som kan twit
 Användarinterfacet ser ut så här: (bild)
 en Twitterflik (inloggning krävs)
 en Weatherflik
-Appen har också en inbyggd webvisare //TODO vad heter det?? som websidan öppnas i när väderprognosen är färdig. 
+Appen har också en inbyggd webvisare JavaFX WebView och WebEngine som websidan öppnas i när väderprognosen är färdig. 
 
 //TODO beskriv flödet när man använder appen
+Appen startar man loggar in på Twitter, skriver in en stad som man vill ha vädret för, vädret skrivs ut på twitter eller html
+
 //TODO bild från någon som har ett gäng tweets, gärna med vädertweets inkluderade
