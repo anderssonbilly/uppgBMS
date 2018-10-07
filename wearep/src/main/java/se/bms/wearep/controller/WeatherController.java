@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import se.bms.wearep.coords.GetCoords;
@@ -20,6 +21,9 @@ public class WeatherController {
 	@FXML
 	protected TextField city;
 
+	@FXML
+	protected Label cityInfo;
+	
 	protected WeatherLauncher weatherLauncher;
 
 	@FXML

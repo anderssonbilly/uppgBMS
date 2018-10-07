@@ -5,7 +5,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <Pane fx:id="weather" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.bms.wearep.controller.WeatherController">
    <children>
       <Label layoutX="220.0" layoutY="24.0" text="Weather">
@@ -24,5 +23,10 @@
          </font>
       </Button>
       <Label layoutX="103.0" layoutY="400.0" prefHeight="41.0" prefWidth="341.0" text="The coordinates for the city is aquired from Google maps and the weather data from SMHI" wrapText="true" />
+      <Label fx:id="cityInfo" layoutX="103.0" layoutY="263.0" prefWidth="500.0" textFill="RED">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
