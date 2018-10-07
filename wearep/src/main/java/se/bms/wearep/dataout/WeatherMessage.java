@@ -24,7 +24,7 @@ public class WeatherMessage {
 				String value = jsonObject.get("value").getAsString();
 				String unit = jsonObject.get("unit").getAsString();
 		
-				message = "<strong>" + validTime +": </strong>" + name +" " + value + " " + unit + "<br>";
+				message = "<p><strong>" + validTime +": </strong>" + name +" " + value + " " + unit + "</p><br>";
 				
 				htmlPrinter.printToFile(message);
 			} 
@@ -45,24 +45,20 @@ public class WeatherMessage {
 		
 		// create html page first part
 		protected String createMessageHtmlPageSetup(String pageTitle) { 
-			String message = "<html>\r\n" + 
-					"	\r\n" + 
-					"	<head>\r\n" + 
-					"	\r\n" + 
-					"		<title>" + pageTitle +"</title>\r\n" + 
-					"\r\n" + 
-					"	</head>\r\n" + 
-					"\r\n" + 
-					"	<body>\r\n" + "\r\n";
+			String message = "<!DOCTYPE html>\r\n" +
+					"<html lang=\"en\">\r\n" + 
+					"<head>\r\n" + 
+					"	<meta charset=\"utf-8\">\r\n" + 
+					"	<title>" + pageTitle +"</title>\r\n" +
+					"</head>\r\n" +
+					"<body>\r\n";
 			return message;
 			
 		}
 		
 		// create html page ending
 		protected String createMessageHtmlPageEnding() {
-			String message = "\r\n"+ "\r\n" + "	</body>\r\n" + 
-					"\r\n" + 
-					"</html>";
+			String message = "</body>\r\n" + "</html>";
 			return message;
 		}		
 		
