@@ -1,1 +1,6 @@
 TODO
+
+JavaFX
+scene - en sida
+nod - ett element på en sida
+fxml - layouten för en sida
