@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:id="weather" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.bms.wearep.controller.WeatherController">
+   <children>
+      <Label layoutX="220.0" layoutY="24.0" text="Weather">
+         <font>
+            <Font size="96.0" />
+         </font>
+      </Label>
+      <TextField fx:id="city" layoutX="103.0" layoutY="298.0" promptText="enter city...">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </TextField>
+      <Button layoutX="455.0" layoutY="421.0" mnemonicParsing="false" onAction="#getWeather" style="-fx-background-radius: 50;" text="Get Weather">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Label layoutX="103.0" layoutY="400.0" prefHeight="41.0" prefWidth="341.0" text="The coordinates for the city is aquired from Google maps and the weather data from SMHI" wrapText="true" />
+   </children>
+</Pane>
