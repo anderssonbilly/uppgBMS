@@ -31,9 +31,15 @@ public class GetCoords {
 	
 	
 	private void setURL() {
-		
+		if(city.contains("/")) {
+			city = "Piteå";
+		}
+		else if(city.contains("&")) {
+			city = "Piteå";
+		}
+			
+			
 		tempURL = firstHalfURL + city + secondHalfURL; // creates the url with users input
-
 	}
 	
 	private void parseJSON() {
