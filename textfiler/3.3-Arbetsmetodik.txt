@@ -1,4 +1,3 @@
-﻿
 Vi använde ett repository på github.com TODO länk där vi alla hade skrivrättigheter. Vi förde det mesta av diskussionerna via Slack. Trello fick fungera som visualiseringsverktyg över projektets status och vi använde det både som en KANBAN-tavla med kolumner för TODO, In progress, Ready for review och Done, och för att samla userstories och följa upp frågor och bolla över uppgifter till varandra. 
-Licens TODO MIT?
+
 Initialt fördelade vi arbetet så att vi arbetade med varsitt API; Billy med Twitter, Sten med Google Maps och Malin med SMHI. Därutöver arbetade vi med review av varandras kod och hjälpte varandra när det behövdes. Varje API fick varsin branch (även om de fick namn efter oss), JavaFX-skalet fick en egen och därutöver hade vi ett par olika test-brancher för att kunna testa att de olika delarna fungerade tillsammans innan vi släppte dem till master. 
