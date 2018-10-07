@@ -1,0 +1,7 @@
+Twitters API tillåter oss att hämta tweets att posta tweets.
+Man måste först logga in via API med hjälp av OAuth för att få tillgång till dessa funktioner.
+All tweet data som hämtas av API är i json format.
+
+Vi har använt oss av ett externt bibliotek som heter twitter4j för att underlätta användandet av API.
+Biblioteket har färdiga metoder för twitters alla API funktioner.
+Detta gör det mycket smidigt att bygga en applikation runt Twitter.
