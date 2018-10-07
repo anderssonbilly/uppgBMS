@@ -11,3 +11,5 @@ en Twitterflik (inloggning krävs)
 en Weatherflik
 Appen har också en inbyggd webvisare //TODO vad heter det?? som websidan öppnas i när väderprognosen är färdig. 
 
+//TODO beskriv flödet när man använder appen
+//TODO bild från någon som har ett gäng tweets, gärna med vädertweets inkluderade
