@@ -1,1 +1,2 @@
 TODO
+Det övergripande målet var att skapa ett program som tar emot inmatning av en stad av användaren, kollar upp koordinaterna för staden, hämtar väderleken för staden och sen får användaren välja att twittra vädret i den staden
