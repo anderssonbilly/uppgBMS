@@ -1,5 +1,3 @@
-//TODO Flytta det mesta här till 5.3 Resultat istället? 
-
 All grundläggande funktionalitet som vi tänkt oss är uppfylld:
 Användaren ska kunna mata in en plats i appen.
 Appen ska hämta koordinater för platsen från Google Maps API.
@@ -10,6 +8,7 @@ Användaren ska kunna logga in på twitter, läsa och publicera tweets.
 Appen ska hantera data i JSON-format.
 Vissa aspekter och funktioner är inte implementerade eller inte implementerade fullt. Det gäller bland annat felhanteringen och valideringen av inkommande data som kunde vara mer heltäckande. Säkerhetsaspekterna är analyserade, se sektion 5.2, men på grund av tidsbristen måhända inte tillräckligt implementerade i den här versionen av appen.
 Appen är byggd i moduler och integrationen mellan dem hanteras av en klass. Detta underlättar om vi skulle vilja lägga till, byta ut eller ta bort moduler.
+//TODO stämmer det att det är endast en? ANnars vilka klasser?
 
-// Detta är i varje fall implementationsdiskussion
+//TODO Detta är i varje fall implementationsdiskussion
 När vi skulle koppla ihop de olika modulerna visade det sig att en del av metoderna behövde skrivas om. Det kändes vettigare att ha integrationen samlad på ett ställe än utspridd i olika klasser.
