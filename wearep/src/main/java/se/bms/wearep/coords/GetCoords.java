@@ -32,10 +32,10 @@ public class GetCoords {
 	
 	private void setURL() {
 		if(city.contains("/")) {
-			city = "Piteå";
+			city = "";
 		}
 		else if(city.contains("&")) {
-			city = "Piteå";
+			city = "";
 		}
 			
 			
