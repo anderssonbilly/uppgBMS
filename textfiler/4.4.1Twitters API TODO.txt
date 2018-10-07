@@ -5,3 +5,21 @@ All tweet data som hämtas av API är i json format.
 Vi har använt oss av ett externt bibliotek som heter twitter4j för att underlätta användandet av API.
 Biblioteket har färdiga metoder för twitters alla API funktioner.
 Detta gör det mycket smidigt att bygga en applikation runt Twitter.
+
+
+
+För att hantera twitter så har vi skapat en huvud klass Twitter4J.java.
+Det är via denna klassen som applikationen kommunicerar med twitter4j biblioteket och tillhandhåller applikationen twitter informationen.
+Huvudklassen har även två hjälpklasser Authorization.java och Tweet.java.
+Vi använder oss även av observer strategi design mönster för att kunna uppdatera delar av applikationen om vi är autoriserade eller ej.
+
+getAuthURL hämtar en request token, med hjälp av getRequestToken metoden, och skapar webbaddressen för inloggning till twitter.
+authorize metoden skickar din pinkoden som vi fått när vi loggat in till twitter. Här hämtar vi en accesstoken och ser om autentikationen fungerade. Detta sker i Authorization.java
+tweet är den metoden med hjälp av Tweet.java som skickar ditt meddelande upp till twitter. 
+getTweets hämtar ditt twitterflöde och ger det i en lista.
+isAuthorized kan kallas på för att se om man är autoriserad eller ej.
+
+addObserver, updateTweetList och updateObserver är en del av observer strategy pattern.
+Vi har en abstrakt TwitterObserver klass med metoderna updateTwitter och update som vi kallar på när vi kör metoden updateObservers.
+Så fort vi vill ha en klass som skall ha information om vad som sker i Twitter4J klassen så extendar vi dem med TwitterObserverklassen och lägger till dem i en observer lista i Twitter4J med addObserver metoden.
+När någon av updateTweetList eller updateObserver körs så meddelas alla klasser i vår observer lista genom de abstrakta metoderna.
