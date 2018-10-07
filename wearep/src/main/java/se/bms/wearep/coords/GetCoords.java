@@ -73,7 +73,7 @@ public class GetCoords {
 			connection.connect();
 			int responseCode = connection.getResponseCode();
 			if (responseCode != 200) {		// 200 = OK
-				throw new RuntimeException("HttpResponseCode: " + responseCode);		// prints response code if response code wasn't 200
+				
 			}
 			else {
 				Scanner scanner = new Scanner(url.openStream());
