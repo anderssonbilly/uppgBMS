@@ -1,2 +1,1 @@
-TODO
-Det övergripande målet var att skapa ett program som tar emot inmatning av en stad av användaren, kollar upp koordinaterna för staden, hämtar väderleken för staden och sen får användaren välja att twittra vädret i den staden
+Det Ã¶vergripande mÃ¥let var att skapa ett program som tar emot inmatning av en plats av anvÃ¤ndaren, slÃ¥r upp koordinaterna fÃ¶r platsen, hÃ¤mtar vÃ¤derleken fÃ¶r den och sedan lÃ¥ter anvÃ¤ndaren vÃ¤lja om han/hon Ã¤ven vill twittra vÃ¤derprognosen. Programmet skulle Ã¤ven kunna twittra annat.
