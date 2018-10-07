@@ -46,6 +46,7 @@ public class TweetController extends AuthorizationObserver {
 		if (authorized)
 			loopTweets();
 
+		System.out.println(tweetsBox.getParent().getParent().getParent());
 	}
 
 	@FXML

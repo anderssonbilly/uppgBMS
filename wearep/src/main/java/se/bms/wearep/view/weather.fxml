@@ -18,7 +18,7 @@
             <Font size="48.0" />
          </font>
       </TextField>
-      <Button layoutX="455.0" layoutY="421.0" mnemonicParsing="false" onAction="#getWeather" style="-fx-background-radius: 50;" text="Get Weather">
+      <Button defaultButton="true" layoutX="455.0" layoutY="421.0" mnemonicParsing="false" onAction="#getWeather" style="-fx-background-radius: 50;" text="Get Weather">
          <font>
             <Font size="36.0" />
          </font>

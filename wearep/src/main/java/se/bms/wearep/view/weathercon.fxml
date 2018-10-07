@@ -12,6 +12,6 @@
             <Font size="48.0" />
          </font>
       </Button>
-      <Label id="status" alignment="CENTER" layoutX="300.0" layoutY="14.0" prefWidth="200.0" textAlignment="CENTER" />
+      <Label id="status" alignment="CENTER" layoutX="300.0" layoutY="32.0" prefWidth="200.0" textAlignment="CENTER" />
    </children>
 </Pane>

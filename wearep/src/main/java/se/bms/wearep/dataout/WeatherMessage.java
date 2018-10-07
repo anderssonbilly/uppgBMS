@@ -24,7 +24,7 @@ public class WeatherMessage {
 				String value = jsonObject.get("value").getAsString();
 				String unit = jsonObject.get("unit").getAsString();
 		
-				message = "<p><strong>" + validTime +": </strong>" + name +" " + value + " " + unit + "</p><br>";
+				message = "<p><strong>" + validTime +": </strong>" + name +" " + value + " " + unit + "</p>";
 				
 				htmlPrinter.printToFile(message);
 			} 

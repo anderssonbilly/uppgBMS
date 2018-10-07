@@ -7,8 +7,14 @@ import se.bms.wearep.dataout.WeatherMessage;
 
 public class WeatherLauncher {
 
+	protected String twitterMessage;
+	
+	public WeatherLauncher(){
+		this.twitterMessage = "";
+	}
+	
 	//public static void run() {
-	public static void run(String city, Double lon, Double lat) {
+	public void run(String city, Double lon, Double lat) {
 		//System.out.println("Weather.run gets: " + city + " " + lon + " " + lat); //for reference only
 		
 		Weather weather = new Weather();
@@ -26,7 +32,10 @@ public class WeatherLauncher {
 		JsonObject selectedWeatherObject = weatherSelector.createSelectedWeatherObject(jsonObjectTemp, jsonObjectForecast);
 		WeatherMessage weatherMessage = new WeatherMessage();
 		String message = weatherMessage.createMessage(location, selectedWeatherObject);
-		System.out.println(message); //this is the message to twitter
-
+		this.twitterMessage = message; //this is the message to twitter
+	}
+	
+	public String getTwitterMessage() {
+		return this.twitterMessage;
 	}
 }

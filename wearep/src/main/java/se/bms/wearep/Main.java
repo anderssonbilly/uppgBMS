@@ -16,7 +16,8 @@ public class Main {
 		Double lon = getcoords.getLongitude();
 		Double lat = getcoords.getLatitude();
 	//	System.out.println("Main prints city: "+ city + " lon: " + lon + " lat "+ lat);
-		WeatherLauncher.run(city, lon, lat);
+		WeatherLauncher weather = new WeatherLauncher();
+		weather.run(city, lon, lat);
 	}
 
 }
