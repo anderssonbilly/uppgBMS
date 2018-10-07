@@ -1,9 +1,9 @@
 OAuth är ett protokoll som beskriver hur man säkert tillåter en applikation att ta del av information ifrån en annan tjänst utan att dela med sig av lösenord.
 
-För att kunna använda twitter funktionerna i våran applikation så behöver användaren autentisera sig på twitters webbsida.
+För att kunna använda twitter funktionerna i vår applikation så behöver användaren autentisera sig på twitters webbsida.
 Detta sker via twitters API med hjälp av OAuth.
-Våran applikation frågar först twitters API efter request token, i denna token finns information om vem som kallade på den, när den kallades och unika signaturer.
+Vår applikation frågar först twitters API efter request token, i denna token finns information om vem som kallade på den, när den kallades och unika signaturer.
 Sedan använder vi oauth signaturen och går till twitters webbsida som hanterar inloggning via api, där når vi en login prompt.
 När man väl loggat in så genereras en unik pinkod. Denna pinkod skriver vi sedan in i vår applikation.
-Vi frågar sedan twitters api med våran unika oauth token vi fick tidigare och pinkoden som vi fick ifrån twitter efter en ny access token.
+Vi frågar sedan twitters api med vår unika oauth token vi fick tidigare och pinkoden som vi fick ifrån twitter efter en ny access token.
 Om allt stämmer så är vi inloggad, twitter har autentiserat våran applikation och ger oss tillåtelse att använda deras api.
