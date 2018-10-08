@@ -1,8 +1,11 @@
 ﻿Vi har använt oss av JavaFX som GUI till vårat projekt.
 För att bygga upp våra scenes i applikationen har vi använt oss av fxml filer och FXMLLoader.
-fxml filen är mer eller mindre upplagt som ett html dokument.
-Varje fil är en sida i applikationen och varje sida kan ha en controller bunden till sig
-Noderna i vår fxml sida går att binda till klasser i java genom att ge dem ett unikt id, i controllern når man noden sedan genom @FXML anoteringen och nodens id.
+
+Fxml-filen är upplagt ungefär som en kombination av xml och html. Varje fil innehåller element som representerar noder på sidan,
+dessa går att sätta css style på precis som i html.
+I Fxml-dokumentet sätter vi även en controller som binder denna filen till ett java klass.
+Noderna når vi sedan i vår controller klass genom de unika id som vi satt på elementet i fxml-dokumentet.
+Man når dem genom att använda @FXML-annoteringen följt av nodens id.
 
 Applikationen är byggd med en container scene som innehåller två tabbar för att vi skall kunna byta mellan två aktiva scenes.
 I dessa tabbar öppnar vi sedan två scenes.
