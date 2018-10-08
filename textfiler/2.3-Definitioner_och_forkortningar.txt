@@ -1,6 +1,9 @@
 TODO
 
 JavaFX
-scene - en sida
-nod - ett element på en sida
-fxml - layouten för en sida
+scene 	-	En sida i applikationen
+nod 	-	Ett element på en sida
+fxml 	-	Layouten för en sida
+
+Twitter
+tweet	-	Ett meddelande ifrån en användare

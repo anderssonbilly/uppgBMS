@@ -1,8 +1,12 @@
 2.4	REFERENSER TODO
 Google Maps API dokumentation: https://developers.google.com/maps/documentation/geocoding/intro
+gson: https://github.com/google/gson
 Länk till Trello tavla: https://trello.com/b/dN3ze08J/grupparbete-datorkommunikation-och-n%C3%A4tverk
 
 Twitter API dokumentation: https://developer.twitter.com/en/docs.html
+Twitter4J biblioteket: http://twitter4j.org/en/index.html
+
+JavaFX dokumentation: https://www.oracle.com/technetwork/java/javase/documentation/javafx-docs-2159875.html
 
 SMHI api dokumentation: https://opendata.smhi.se/apidocs/metfcst/index.html
 
