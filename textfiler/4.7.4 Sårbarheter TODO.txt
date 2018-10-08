@@ -1,14 +1,15 @@
-Vissa metoder är public fast man kanske kunde gjort dom private.
+Det är viktigt att välja en lämplig nivå på visibilitet för klasser och metoder. Det är onödigt att exponera mer kod än nödvändigt. Vi har försökt att hålla så mycket som möjligt private, annars protected och endast låtit de metoder som verkligen behöver vara publika vara det.
 
-Vi ska även bygga till kontroller av inmatad data, utifall nån skriver in "4" som stad t.ex.
+Att källkoden är öppen kan vara en sårbarhet. Vem som helst kommer åt den och då är det lättare att hitta svagheterna. Man bör vara noggrann och försiktig med vad man skickar upp till github då alla kan se det. Exempelvis är det inte lämpligt att lägga sina API-nycklar där, se Sektion 4.7.2 för hur vi hanterat det.
 
-Vem som helst kan använda väderdelen av appen för att hämta väderdata. där krävs ingen autentisering, lika lite som det krävs för att titta på väderprognosen på SMHIs egna sidor. För att använda twitter däremot krävs inloggning på ett twitterkonto. //TODO hör det hemma här eller under autentisiering?
+Html-filen sparas lokalt. Det kan ses som en sårbarhet, då den som har html-kunskap kan ändra i den, men den är å andra sidan inte publikt publicerad. Att vår applikation raderar filen om den redan existerar när metoden för att hämta väderprognosen körs kan vara en säkerhetsrisk om någon skulle ändra på vilken fil som tas bort så att det istället försvinner någon väsentlig systemfil.
 
-//TODO Kan det ses som en sårbarhet att vi sparar html-filen lokalt? Den som har html-kunskap kan ändra i den, men den är å andra sidan inte publikt publicerad.
+Via nätverket skulle man kunna tänka sig att någon ändrar urlen för att hämta väderdata till en annan adress som matar ut gigantiska JSON, så att datorn fylls. 
 
-//TODO Borde vi fånga upp inkommande data (inmatning av stad?) och escapa den för att skydda oss serverside?
+En annan sårbarhet är om valideringen av inputs till applikationen inte är god nog.
 
-//TODO Finns det sårbarheter i Maven som skulle kunnat påverka vår app?
+Enligt https://maven.apache.org/security.html finns det inte några kända säkerhetsrisker med Maven (4.0.0) som vi använder.
 
-//TODO Att källkoden är öppen är kan vara en sårbarhet, sedan det med api nycklar
-//TODO ATt man bör vara noggran med vad man skickar upp till github då alla kan se
+
+
+

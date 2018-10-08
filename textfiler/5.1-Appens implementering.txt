@@ -6,9 +6,6 @@ Appen ska publicera väderdata för den utvalda platsen i en html-fil.
 Appen ska också lägga viss väderdata i en textsträng som användaren kan välja att twittra.
 Användaren ska kunna logga in på twitter, läsa och publicera tweets.
 Appen ska hantera data i JSON-format.
-Vissa aspekter och funktioner är inte implementerade eller inte implementerade fullt. Det gäller bland annat felhanteringen och valideringen av inkommande data som kunde vara mer heltäckande. Säkerhetsaspekterna är analyserade, se sektion 5.2, men på grund av tidsbristen måhända inte tillräckligt implementerade i den här versionen av appen.
-Appen är byggd i moduler och integrationen mellan dem hanteras av en klass. Detta underlättar om vi skulle vilja lägga till, byta ut eller ta bort moduler.
-//TODO stämmer det att det är endast en? ANnars vilka klasser?
+Vissa aspekter och funktioner är inte implementerade eller inte implementerade fullt. Det gäller bland annat felhanteringen och valideringen av inkommande data som kunde vara mer heltäckande för att göra applikationen både säkrare och mer stabil. Vi fick också välja bort vissa funktioner, exempelvis kan man i Twitterdelen inte se andras flöden eller följa ett enskilt tweets historik, och i väderdelen kan man inte välja vilka väderdata man vill twittra ut, utan variablerna är förvalda. Säkerhetsaspekterna är analyserade, se Sektion 5.2, men på grund av tidsbristen måhända inte tillräckligt implementerade i den här versionen av appen. 
+Appen är byggd i moduler och integrationen mellan dem hanteras av några få klasser. Detta underlättar om vi skulle vilja lägga till, byta ut eller ta bort moduler. När vi skulle koppla ihop de olika modulerna visade det sig att en del av metoderna behövde modifieras, för att få integrationen samlad snarare än utspridd på olika ställen.
 
-//TODO Detta är i varje fall implementationsdiskussion
-När vi skulle koppla ihop de olika modulerna visade det sig att en del av metoderna behövde skrivas om. Det kändes vettigare att ha integrationen samlad på ett ställe än utspridd i olika klasser.

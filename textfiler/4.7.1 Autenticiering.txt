@@ -7,3 +7,4 @@ Sedan använder vi oauth signaturen och går till twitters webbsida som hanterar
 När man väl loggat in så genereras en unik pinkod. Denna pinkod skriver vi sedan in i vår applikation.
 Vi frågar sedan twitters api med vår unika oauth token vi fick tidigare och pinkoden som vi fick ifrån twitter efter en ny access token.
 Om allt stämmer så är vi inloggad, twitter har autentiserat våran applikation och ger oss tillåtelse att använda deras api.
+För att enbart titta på väderprognosen krävs ingen autenticiering, lika lite som det krävs för att titta på väderprognosen på SMHIs egna sidor.
