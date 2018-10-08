@@ -12,13 +12,13 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class GetCoords {
-	String city = "";
-	String firstHalfURL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
-	String secondHalfURL = "&sensor=false&key=AIzaSyDb5BNaLMM4s_e_-EJN7_Wj8EiUM6_FC08";
-	String tempURL = "";
-	String rawData = "";	// temporary variable for storing all the data from the API to be parsed
-	Double longitude = null;
-	Double latitude = null;
+	private String city = "";
+	private String firstHalfURL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+	private String secondHalfURL = "&sensor=false&key=AIzaSyDb5BNaLMM4s_e_-EJN7_Wj8EiUM6_FC08";
+	private String tempURL = "";
+	private String rawData = "";	// temporary variable for storing all the data from the API to be parsed
+	private Double longitude = 0.000;
+	private Double latitude = 0.000;
 	
 	
 	public void run(String tmpCity) {
@@ -73,7 +73,7 @@ public class GetCoords {
 			connection.connect();
 			int responseCode = connection.getResponseCode();
 			if (responseCode != 200) {		// 200 = OK
-				throw new RuntimeException("HttpResponseCode: " + responseCode);		// prints response code if response code wasn't 200
+				
 			}
 			else {
 				Scanner scanner = new Scanner(url.openStream());
