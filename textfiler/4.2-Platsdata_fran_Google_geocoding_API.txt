@@ -1,6 +1,6 @@
 ﻿
 Platsdata hämtas från Google geocoding API via klassen GetCoords. Klassen har en run(String city) metod som först bygger upp en URL med staden och en API-nyckel.
 
-Beväpnad med en URL så upprättas en HttpURLConnection som hämtar JSON datan till en sträng, som sedan omvandlas till JSON objekt och arrayer för att komma åt datan man vill ha, och sen rundas koordinaterna av till 6 decimaler.
+Med en färdig URL så upprättas en HttpURLConnection som hämtar JSON datan till en sträng, som sedan omvandlas till JSON objekt och arrayer för att komma åt datan man vill ha, och sen rundas koordinaterna av till 6 decimaler.
 
 Efter det kan koordinaterna hämtas med getLatitude() och getLongitude(). Man kan även hämta ut stadens namn med getCity().
