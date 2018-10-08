@@ -2,7 +2,6 @@ package se.bms.wearep.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,7 +23,6 @@ public class WeatherControlController extends TwitterObserver {
 
 	@FXML
 	public void tweetWeather(ActionEvent event) {
-		// tweet the current weather
 		if (TwitterController.getTwitter().isAuthorized()) {
 			System.out.println("Tweeting weather");
 			if (weather != null) {

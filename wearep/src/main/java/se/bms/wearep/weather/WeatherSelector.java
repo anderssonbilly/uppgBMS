@@ -43,7 +43,6 @@ public class WeatherSelector {
 			//  System.out.println("This is Air temperature " + element);
 			  validTime = element.getAsJsonObject().get("validTime").getAsString();
 			  temperature = element.getAsJsonObject().get("value").getAsString();
-			//  unit = element.getAsJsonObject().get("unit").getAsString();
 			 
 			  Weather weather = new Weather(validTime, forecast, temperature);
 		//	  System.out.println("Forecast for "+ validTime + " Temperature " + temperature + " degrees Celsius. ");

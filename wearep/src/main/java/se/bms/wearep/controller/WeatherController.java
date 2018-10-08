@@ -30,18 +30,10 @@ public class WeatherController {
 	public void getWeather(ActionEvent event) throws IOException {
 		System.out.println("City: " + city.getText());
 		getWeatherData(city.getText(), getLongitude(city.getText()), getLatitude(city.getText()));
-		// when data is saved to disk
-		// show data in html file in the webview
 		changeToBrowser("file:/" + System.getProperty("user.dir").replace("\\", "/") + "/weatherOutfile.html");
 	}
 
-	private Double[] getCoords(String city) {
-		// get coords from city
-		return null;
-	}
-
 	private Double getLongitude(String city) {
-		// get lon from city
 		GetCoords getcoords = new GetCoords();
 		getcoords.run(city);
 		Double lon = getcoords.getLongitude();
@@ -49,7 +41,6 @@ public class WeatherController {
 	}
 
 	private Double getLatitude(String city) {
-		// get lat from city
 		GetCoords getcoords = new GetCoords();
 		getcoords.run(city);
 		Double lat = getcoords.getLatitude();
@@ -57,7 +48,6 @@ public class WeatherController {
 	}
 
 	private void getWeatherData(String city, Double lon, Double lat) {
-		// get weather data from coords
 		File outputFile = new File("weatherOutfile.html");
 		outputFile.delete();
 		this.weatherLauncher = new WeatherLauncher();

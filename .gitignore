@@ -3,6 +3,4 @@
 .settings/
 target/
 *.class
-*.class
-*.class
 twitter4j.properties

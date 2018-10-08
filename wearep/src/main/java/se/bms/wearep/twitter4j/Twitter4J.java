@@ -3,7 +3,6 @@ package se.bms.wearep.twitter4j;
 import java.util.ArrayList;
 import java.util.List;
 
-import se.bms.wearep.controller.TweetController;
 import se.bms.wearep.observer.TwitterObserver;
 import twitter4j.ResponseList;
 import twitter4j.Status;
